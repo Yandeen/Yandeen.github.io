@@ -1,0 +1,2698 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+<title>Nourou’s Page</title>
+
+<meta property="og:title" content="Nourou’s Page" />
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+
+<link rel="icon" href="data:image/x-icon;" type="image/x-icon">
+
+
+<script type="text/javascript">
+window.FlexDashboardComponents = [];
+</script>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/stickytableheaders-0.1.19/jquery.stickytableheaders.min.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
+<style type="text/css">
+
+/*
+ Dashboard CSS from Keen IO Dashboards
+ (https://github.com/keen/dashboards)
+*/
+
+body {
+  background: #f2f2f2;
+  padding: 60px 0 0 8px; /* padding-top overridden by theme */
+}
+
+body hr {
+  border-color: #d7d7d7;
+  margin: 10px 0;
+}
+
+.navbar-inverse .navbar-nav > li > a,
+.navbar .navbar-brand {
+  text-decoration: none;
+}
+
+.navbar-logo {
+  margin-top: 1px;
+}
+
+.navbar-logo img {
+  margin-right: 12px;
+}
+
+.navbar-author {
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.navbar .dropdown-menu .fa {
+  min-width: 20px;
+}
+
+.navbar .dropdown-menu {
+  min-width: 150px;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.chart-wrapper,
+.nav-tabs-custom,
+.sbframe-commentary
+{
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
+
+.chart-title {
+  border-bottom: 1px solid #d7d7d7;
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 7px 10px 4px;
+}
+
+.chart-wrapper .chart-title:empty {
+  display: none;
+}
+
+.chart-wrapper .chart-stage {
+  overflow: hidden;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.chart-wrapper .chart-notes {
+  background: #fbfbfb;
+  border-top: 1px solid #e2e2e2;
+  color: #808080;
+  font-size: 12px;
+  padding: 8px 10px 5px;
+}
+
+/*
+ CSS for handling flexbox layout
+*/
+
+#dashboard-container {
+  visibility: hidden;
+}
+
+.tab-content>.dashboard-page-wrapper.active {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dashboard-page-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard-row-orientation {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.dashboard-row-flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.dashboard-column-orientation {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.dashboard-column {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chart-wrapper-flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chart-stage-flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+}
+
+.chart-shim {
+  position: absolute;
+  left: 8px; top: 8px; right: 8px; bottom: 8px;
+}
+
+.no-padding .chart-shim {
+  left: 0; top: 0; right: 0; bottom: 0;
+}
+
+.flowing-content-shim {
+  overflow: auto;
+  left: 0; top: 0; right: 0; bottom: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.flowing-content-container {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.chart-stage .table-bordered {
+  border: none;
+}
+
+.chart-stage .table-bordered > tbody > tr > th,
+.chart-stage .table-bordered > tfoot > tr > th,
+.chart-stage .table-bordered > tbody > tr > td,
+.chart-stage .table-bordered > tfoot > tr > td {
+  border: none;
+}
+
+.chart-stage .table-bordered > tbody > tr > td {
+  border-top: 1px solid #dddddd;
+}
+
+.chart-stage .table-bordered > thead > tr > th {
+  border: none;
+  border-bottom: 2px solid #dddddd;
+}
+
+.bootstrap-table table>thead {
+  background-color: #fff;
+}
+
+.bootstrap-table table.data,
+.bootstrap-table table.shiny-table {
+  width: inherit !important;
+}
+
+.bootstrap-table table.data>tbody>tr>th,
+.bootstrap-table table.shiny-table>tbody>tr>th {
+  border-top: none;
+  border-bottom: 2px solid #dddddd;
+  padding: 5px;
+}
+
+.bootstrap-table .data td[align=right] {
+  font-family: inherit;
+}
+
+.chart-wrapper form {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.shiny-input-container label {
+  font-weight: normal;
+}
+
+.chart-stage .html-widget {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-stage .html-widget-static-bound {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-stage .shiny-bound-output {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Omit display of empty paragraphs */
+
+.chart-shim>p:empty {
+  display: none;
+}
+
+.chart-stage>p:empty {
+  display: none;
+}
+
+/* Omit display of special knitr options div*/
+
+.chart-stage .knitr-options {
+  display: none;
+}
+
+/* Automatically resizing images */
+
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.image-container img {
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Value box */
+
+.value-box {
+  border-radius: 2px;
+  position: relative;
+  display: block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.value-box > .inner {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.value-box .value {
+  font-size: 38px;
+  font-weight: bold;
+  margin: 0 0 3px 0;
+  white-space: nowrap;
+  padding: 0;
+}
+
+.value-box .caption {
+  font-size: 15px;
+}
+.value-box .caption > small {
+  display: block;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.value-box .icon i {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 80px;
+  color: rgba(0, 0, 0, 0.15);
+}
+
+.linked-value:hover {
+  cursor: pointer;
+}
+
+.value-box.linked-value:hover {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* STORYBOARD */
+
+.storyboard-nav button {
+  background: transparent;
+  border: 0;
+  opacity: .3;
+  outline: none;
+  padding: 0;
+}
+
+.storyboard-nav button:hover,
+.storyboard-nav button:hover {
+  opacity: .5;
+}
+
+.storyboard-nav button:disabled,
+.storyboard-nav button:disabled {
+  opacity: .1;
+}
+
+.storyboard-nav .sbnext,
+.storyboard-nav .sbprev {
+  float: left;
+  width: 2%;
+  height: 120px;
+  font-size: 50px;
+}
+
+.storyboard-nav .sbprev {
+  text-align: left;
+  width: 2%;
+}
+
+.storyboard-nav .sbnext {
+  float: right;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.storyboard-nav .sbframelist {
+  margin: 0 auto;
+  width: 94%;
+  height: 120px;
+  overflow: hidden;
+  text-shadow: none;
+  margin-bottom: 8px;
+}
+
+.storyboard-nav .sbframelist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.storyboard-nav .sbframelist ul li {
+  float: left;
+  width: 270px;
+  height: 100%;
+  padding: 10px 10px 10px 10px;
+  margin-right: 8px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  color: #3a3c47;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.storyboard-nav .sbframelist ul li:last-child {
+  margin-right: 0px;
+}
+
+.storyboard-nav .sbframelist ul li.active {
+  color: #fff;
+  background: #B8B8B8;
+}
+
+.sbframe-commentary {
+  width: 300px;
+  background: #fbfbfb;
+  font-size: 14px;
+}
+
+.sbframe-commentary ul {
+  padding-left: 22px;
+}
+
+.sbframe.active {
+  display: flex;
+}
+
+.sbframe:not(.active) {
+  display: none;
+}
+
+/* NAV TABS */
+
+.nav-tabs-custom > .nav-tabs {
+  margin: 0;
+  border-bottom: 1px solid #d7d7d7;
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.nav-tabs-custom > .nav-tabs > li {
+  border-top: 3px solid transparent;
+  margin-bottom: -1px;
+  margin-right: 5px;
+}
+.nav-tabs-custom > .nav-tabs > li > a,
+.nav-tabs-custom > .nav-tabs > li > a:active {
+  color: #666;
+  font-weight: 300;
+  font-size: 14px;
+  border-radius: 0;
+  padding: 3px 10px 5px;
+  text-transform: none;
+}
+
+.nav-tabs-custom > .nav-tabs > li:not(.active) > a {
+  border-bottom-color: transparent;
+}
+
+.nav-tabs-custom > .nav-tabs > li > a.text-muted {
+  color: #999;
+}
+.nav-tabs-custom > .nav-tabs > li > a,
+.nav-tabs-custom > .nav-tabs > li > a:hover {
+  background: transparent;
+  margin: 0;
+}
+.nav-tabs-custom > .nav-tabs > li > a:hover {
+  color: #999;
+}
+.nav-tabs-custom > .nav-tabs > li:not(.active) > a:hover,
+.nav-tabs-custom > .nav-tabs > li:not(.active) > a:focus,
+.nav-tabs-custom > .nav-tabs > li:not(.active) > a:active {
+  border-color: transparent;
+}
+.nav-tabs-custom > .nav-tabs > li.active {
+  border-top-color: #3c8dbc;
+}
+.nav-tabs-custom > .nav-tabs > li.active > a,
+.nav-tabs-custom > .nav-tabs > li.active:hover > a {
+  background-color: #fff;
+  color: #666;
+}
+.nav-tabs-custom > .nav-tabs > li.active > a {
+  border-top-color: transparent;
+  border-left-color: #d7d7d7;
+  border-right-color: #d7d7d7;
+}
+.nav-tabs-custom > .nav-tabs > li:first-of-type {
+  margin-left: 0;
+}
+.nav-tabs-custom > .nav-tabs > li:first-of-type.active > a {
+  border-left-color: transparent;
+}
+.nav-tabs-custom > .nav-tabs.pull-right {
+  float: none !important;
+}
+.nav-tabs-custom > .nav-tabs.pull-right > li {
+  float: right;
+}
+.nav-tabs-custom > .nav-tabs.pull-right > li:first-of-type {
+  margin-right: 0;
+}
+.nav-tabs-custom > .nav-tabs.pull-right > li:first-of-type > a {
+  border-left-width: 1px;
+}
+.nav-tabs-custom > .nav-tabs.pull-right > li:first-of-type.active > a {
+  border-left-color: #d7d7d7;
+  border-right-color: transparent;
+}
+.nav-tabs-custom > .nav-tabs > li.header {
+  line-height: 35px;
+  padding: 0 10px;
+  font-size: 20px;
+  color: #666;
+}
+.nav-tabs-custom > .nav-tabs > li.header > .fa,
+.nav-tabs-custom > .nav-tabs > li.header > .glyphicon,
+.nav-tabs-custom > .nav-tabs > li.header > .ion {
+  margin-right: 5px;
+}
+.nav-tabs-custom > .tab-content {
+  background: #fff;
+  padding: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav-tabs-custom > .tab-content > .chart-wrapper {
+  background: #fff;
+  border: none;
+  margin: 0;
+}
+
+
+.nav-tabs-custom > .tab-content > .active {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav-tabs-custom .dropdown.open > a:active,
+.nav-tabs-custom .dropdown.open > a:focus {
+  background: transparent;
+  color: #999;
+}
+
+
+@media (max-width: 767px) {
+  .value-box {
+    text-align: center;
+    margin-right: 8px;
+  }
+  .value-box .icon {
+    display: none;
+  }
+}
+
+/* Fixed position sidebar */
+
+.section.sidebar {
+  position: fixed;
+  top: 51px; /* overridden by theme */
+  left: 0;
+  bottom: 0;
+  border-right: 1px solid #e2e2e2;
+  background-color: white; /* overridden by theme */
+  padding-left: 10px;
+  padding-right: 10px;
+  visibility: hidden;
+  overflow: auto;
+}
+
+.section.sidebar form p:first-child {
+  margin-top: 10px;
+}
+
+/* Embedded source code */
+
+#flexdashboard-source-code {
+  display: none;
+}
+
+.featherlight-content #flexdashboard-source-code {
+  display: inline-block;
+}
+
+.featherlight-content {
+  width: 80%;
+  max-width: 800px;
+  padding: 0 !important;
+  border-bottom: none !important;
+}
+
+.featherlight:last-of-type {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.featherlight-inner {
+  width: 100%;
+}
+
+.featherlight-content pre {
+  margin: 0;
+  border: 0;
+  background: #fff;
+  font-size: 12px;
+}
+
+.unselectable {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+#flexdashboard-source-code code {
+  -ms-user-select: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+}
+
+/* DataTables Tweaks */
+
+.dataTables_filter input[type="search"] {
+  -webkit-appearance: searchfield;
+  outline: none;
+}
+
+.dataTables_wrapper.no-footer
+.dataTables_info {
+  padding-top: 0;
+}
+
+
+table.dataTable thead th {
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.dataTables_wrapper.no-footer .dataTables_scrollBody {
+  border-bottom: 1px solid #d7d7d7;
+}
+
+/* Mobile phone only CSS */
+
+.desktop-layout div.section.mobile {
+  display: none;
+}
+
+.mobile-layout div.section.no-mobile {
+  display: none;
+}
+
+.mobile-figure {
+  display: none;
+}
+
+
+
+body {
+  padding-top: 60px;
+}
+
+.section.sidebar {
+  top: 51px;
+  background-color: rgba(39, 128, 227, 0.1);
+}
+
+.value-box {
+  color: #f9f9f9;
+}
+
+.bg-primary {
+  background-color: rgba(39, 128, 227, 0.7);
+}
+
+.storyboard-nav .sbframelist ul li.active {
+  background-color: rgba(39, 128, 227, 0.7);
+}
+
+.nav-tabs-custom > .nav-tabs > li.active {
+  border-top-color: rgba(39, 128, 227, 0.7);
+}
+
+.bg-info {
+  background-color: rgba(153, 84, 187, 0.7);
+}
+
+.bg-warning {
+  background-color: rgba(255, 117, 24, 0.7);
+}
+
+.bg-danger {
+  background-color: rgba(255, 0, 57, 0.7);
+}
+
+.bg-success {
+  background-color: rgba(63, 182, 24, 0.7);
+}
+
+.chart-title {
+  font-weight: 500;
+}
+
+.nav-tabs-custom > .nav-tabs > li > a,
+.nav-tabs-custom > .nav-tabs > li > a:active {
+  font-weight: 500;
+}
+
+@media only screen and (min-width: 768px) {
+html, body {
+  height: 100%;
+}
+
+#dashboard-container {
+  height: 100%;
+}
+}
+</style>
+
+
+
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="container-fluid">
+<div class="navbar-header">
+
+<button id="navbar-button" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+
+<span class="navbar-logo pull-left">
+  
+</span>
+<span class="navbar-brand">
+  Nourou’s Page
+  <span class="navbar-author">
+        </span>
+</span>
+
+</div>
+<div id="navbar" class="navbar-collapse collapse">
+<ul class="nav navbar-nav navbar-left">
+</ul>
+<ul class="nav navbar-nav navbar-right">
+</ul>
+</div><!--/.nav-collapse-->
+</div><!--/.container-->
+</div><!--/.navbar-->
+
+<script type="text/javascript">
+
+
+var FlexDashboard = (function () {
+
+  // initialize options
+  var _options = {};
+
+  var FlexDashboard = function() {
+
+    // default options
+    _options = $.extend(_options, {
+      theme: "cosmo",
+      fillPage: false,
+      orientation: 'columns',
+      storyboard: false,
+      defaultFigWidth: 576,
+      defaultFigHeight: 461,
+      defaultFigWidthMobile: 360,
+      defaultFigHeightMobile: 461,
+      isMobile: false,
+      isPortrait: false,
+      resize_reload: true
+    });
+  };
+
+  function init(options) {
+
+    // extend default options
+    $.extend(true, _options, options);
+
+    // add ids to sections that don't have them (pandoc won't assign ids
+    // to e.g. sections with titles consisting of only chinese characters)
+    var nextId = 1;
+    $('.level1:not([id]),.level2:not([id]),.level3:not([id])').each(function() {
+      $(this).attr('id', 'dashboard-' + nextId++);
+    });
+
+    // find navbar items
+    var navbarItems = $('#flexdashboard-navbar');
+    if (navbarItems.length)
+      navbarItems = JSON.parse(navbarItems.html());
+    addNavbarItems(navbarItems);
+
+    // find the main dashboard container
+    var dashboardContainer = $('#dashboard-container');
+
+    // resolve mobile classes
+    resolveMobileClasses(dashboardContainer);
+
+    // one time global initialization for components
+    componentsInit(dashboardContainer);
+
+    // look for a global sidebar
+    var globalSidebar = dashboardContainer.find(".section.level1.sidebar");
+    if (globalSidebar.length > 0) {
+
+      // global layout for fullscreen displays
+      if (!isMobilePhone()) {
+
+         // hoist it up to the top level
+         globalSidebar.insertBefore(dashboardContainer);
+
+         // lay it out (set width/positions)
+         layoutSidebar(globalSidebar, dashboardContainer);
+
+      // tuck sidebar into first page for mobile phones
+      } else {
+
+        // convert it into a level3 section
+        globalSidebar.removeClass('sidebar');
+        globalSidebar.removeClass('level1');
+        globalSidebar.addClass('level3');
+        var h1 = globalSidebar.children('h1');
+        var h3 = $('<h3></h3>');
+        h3.append(h1.contents());
+        h3.insertBefore(h1);
+        h1.detach();
+
+        // move it into the first page
+        var page = dashboardContainer.find('.section.level1').first();
+        if (page.length > 0)
+          page.prepend(globalSidebar);
+      }
+    }
+
+    // look for pages to layout
+    var pages = $('div.section.level1');
+    if (pages.length > 0) {
+
+        // find the navbar and collapse on clicked
+        var navbar = $('#navbar');
+        navbar.on("click", "a[data-toggle!=dropdown]", null, function () {
+           navbar.collapse('hide');
+        });
+
+        // envelop the dashboard container in a tab content div
+        dashboardContainer.wrapInner('<div class="tab-content"></div>');
+
+        pages.each(function(index) {
+
+          // lay it out
+          layoutDashboardPage($(this));
+
+          // add it to the navbar
+          addToNavbar($(this), index === 0);
+
+        });
+
+    } else {
+
+      // remove the navbar and navbar button if we don't
+      // have any navbuttons
+      if (navbarItems.length === 0) {
+        $('#navbar').remove();
+        $('#navbar-button').remove();
+      }
+
+      // add the storyboard class if requested
+      if (_options.storyboard)
+        dashboardContainer.addClass('storyboard');
+
+      // layout the entire page
+      layoutDashboardPage(dashboardContainer);
+    }
+
+    // if we are in shiny we need to trigger a window resize event to
+    // force correct layout of shiny-bound-output elements
+    if (isShinyDoc())
+      $(window).trigger('resize');
+
+    // make main components visible
+    $('.section.sidebar').css('visibility', 'visible');
+    dashboardContainer.css('visibility', 'visible');
+
+    // handle location hash
+    handleLocationHash();
+
+    // intialize prism highlighting
+    initPrismHighlighting();
+
+    // record mobile and orientation state then register a handler
+    // to refresh if resize_reload is set to true and it changes
+    _options.isMobile = isMobilePhone();
+    _options.isPortrait = isPortrait();
+    if (_options.resize_reload) {
+      $(window).on('resize', function() {
+        if (_options.isMobile !== isMobilePhone() ||
+            _options.isPortrait !== isPortrait()) {
+          window.location.reload();
+        }
+      });
+    } else {
+      // if in desktop mode and resizing to mobile, make sure the heights are 100%
+      // This enforces what `fillpage.css` does for "wider" pages.
+      // Since we are not reloading once the page becomes small, we need to force the height to 100%
+      // This is a new situation introduced when `_options.resize_reload` is `false`
+      if (! _options.isMobile) {
+        // only add if `fillpage.css` was added in the first place
+        if (_options.fillPage) {
+          // fillpage.css
+          $("html,body,#dashboard").css("height", "100%");
+        }
+      }
+    }
+    // trigger layoutcomplete event
+    dashboardContainer.trigger('flexdashboard:layoutcomplete');
+  }
+
+  function resolveMobileClasses(dashboardContainer) {
+     // add top level layout class
+    dashboardContainer.addClass(isMobilePhone() ? 'mobile-layout' :
+                                                  'desktop-layout');
+
+    // look for .mobile sections and add .no-mobile to their peers
+    var mobileSections = $('.section.mobile');
+    mobileSections.each(function() {
+       var id = $(this).attr('id');
+       var nomobileId = id.replace(/-\d+$/, '');
+       $('#' + nomobileId).addClass('no-mobile');
+    });
+  }
+
+  function addNavbarItems(navbarItems) {
+
+    var navbarLeft = $('ul.navbar-left');
+    var navbarRight = $('ul.navbar-right');
+
+    for (var i = 0; i<navbarItems.length; i++) {
+
+      // get the item
+      var item = navbarItems[i];
+
+      // determine the container
+      var container = null;
+      if (item.align === "left")
+        container = navbarLeft;
+      else
+        container = navbarRight;
+
+      // navbar menu if we have multiple items
+      if (item.items) {
+        var menu = navbarMenu(null, item.icon, item.title, container);
+        for (var j = 0; j<item.items.length; j++) {
+          var subItem = item.items[j];
+          var li = $('<li></li>');
+          li.append(navbarLink(subItem.icon, subItem.title, subItem.href, subItem.target));
+          menu.append(li);
+        }
+      } else {
+        var li = $('<li></li>');
+        li.append(navbarLink(item.icon, item.title, item.href, item.target));
+        container.append(li);
+      }
+    }
+  }
+
+  // create or get a reference to an existing dropdown menu
+  function navbarMenu(id, icon, title, container) {
+    var existingMenu = [];
+    if (id)
+      existingMenu = container.children('#' + id);
+    if (existingMenu.length > 0) {
+      return existingMenu.children('ul');
+    } else {
+      var li = $('<li></li>');
+      if (id)
+        li.attr('id', id);
+      li.addClass('dropdown');
+      // auto add "Share" title on mobile if necessary
+      if (!title && icon && (icon === "fa-share-alt") && isMobilePhone())
+        title = "Share";
+      if (title) {
+        title = title + ' <span class="caret"></span>';
+      }
+      var a = navbarLink(icon, title, "#");
+      a.addClass('dropdown-toggle');
+      a.attr('data-toggle', 'dropdown');
+      a.attr('role', 'button');
+      a.attr('aria-expanded', 'false');
+      li.append(a);
+      var ul = $('<ul class="dropdown-menu"></ul>');
+      ul.attr('role', 'menu');
+      li.append(ul);
+      container.append(li);
+      return ul;
+    }
+  }
+
+  function addToNavbar(page, active) {
+
+    // capture the id and data-icon attribute (if any)
+    var id = page.attr('id');
+    var icon = page.attr('data-icon');
+    var navmenu = page.attr('data-navmenu');
+
+    // get hidden state (transfer this to navbar)
+    var hidden = page.hasClass('hidden');
+    page.removeClass('hidden');
+
+    // sanitize the id for use with bootstrap tabs
+    id = id.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_');
+    page.attr('id', id);
+
+    // get the wrapper
+    var wrapper = page.closest('.dashboard-page-wrapper');
+
+    // move the id to the wrapper
+    page.removeAttr('id');
+    wrapper.attr('id', id);
+
+    // add the tab-pane class to the wrapper
+    wrapper.addClass('tab-pane');
+    if (active)
+      wrapper.addClass('active');
+
+    // get a reference to the h1, discover its inner contens, then detach it
+    var h1 = wrapper.find('h1').first();
+    var title = h1.contents();
+    h1.detach();
+
+    // create a navbar item
+    var li = $('<li></li>');
+    var a = navbarLink(icon, title, '#' + id);
+    a.attr('data-toggle', 'tab');
+    li.append(a);
+
+    // add it to the navbar (or navbar menu if specified)
+    var container = $('ul.navbar-left');
+    if (navmenu) {
+      var menuId = navmenu.replace(/\s+/g, '');
+      var menu = navbarMenu(menuId, null, navmenu, container);
+      menu.append(li);
+    } else {
+      container.append(li);
+    }
+
+    // hide it if requested
+    if (hidden)
+      li.addClass('hidden');
+  }
+
+  function navbarLink(icon, title, href, target) {
+
+    var a = $('<a></a>');
+    if (icon) {
+
+      // get the name of the icon set and icon
+      var dashPos = icon.indexOf("-");
+      var iconSet = null;
+      var iconSplit = icon.split(" ");
+      if (iconSplit.length > 1) {
+        iconSet = iconSplit[0];
+        icon = iconSplit.slice(1).join(" ");
+      } else {
+        iconSet = icon.substring(0, dashPos);
+      }
+      var iconName = icon.substring(dashPos + 1);
+
+      // create the icon
+      var iconElement = $('<span class="' + iconSet + ' ' + icon + '"></span>');
+      if (title)
+        iconElement.css('margin-right', '7px');
+      a.append(iconElement);
+      // if href is null see if we can auto-generate based on icon (e.g. social)
+      if (!href)
+        maybeGenerateLinkFromIcon(iconName, a);
+    }
+    if (title)
+      a.append(title);
+
+    // add the href.
+    if (href) {
+      if (href === "source_embed") {
+        a.attr('href', '#');
+        a.attr('data-featherlight', "#flexdashboard-source-code");
+        a.featherlight({
+            beforeOpen: function(event){
+              $('body').addClass('unselectable');
+            },
+            afterClose: function(event){
+              $('body').removeClass('unselectable');
+            }
+        });
+      } else {
+        a.attr('href', href);
+      }
+    }
+
+    // add the arget
+    if (target)
+      a.attr('target', target);
+
+    return a;
+  }
+
+  // auto generate a link from an icon name (e.g. twitter) when possible
+  function maybeGenerateLinkFromIcon(iconName, a) {
+
+     var serviceLinks = {
+      "twitter": "https://twitter.com/share?text=" + encodeURIComponent(document.title) + "&url="+encodeURIComponent(location.href),
+      "facebook": "https://www.facebook.com/sharer/sharer.php?s=100&p[url]="+encodeURIComponent(location.href),
+      "google-plus": "https://plus.google.com/share?url="+encodeURIComponent(location.href),
+      "linkedin": "https://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href) + "&title=" + encodeURIComponent(document.title),
+      "pinterest": "https://pinterest.com/pin/create/link/?url="+encodeURIComponent(location.href) + "&description=" + encodeURIComponent(document.title)
+    };
+
+    var makeSocialLink = function(a, href) {
+      a.attr('href', '#');
+      a.on('click', function(e) {
+        e.preventDefault();
+        window.open(href);
+      });
+    };
+
+    $.each(serviceLinks, function(key, value) {
+      if (iconName.indexOf(key) !== -1)
+        makeSocialLink(a, value);
+    });
+  }
+
+  // layout a dashboard page
+  function layoutDashboardPage(page) {
+
+    // use a page wrapper so that free form content above the
+    // dashboard appears at the top rather than the side (as it
+    // would without the wrapper in a column orientation)
+    var wrapper = $('<div class="dashboard-page-wrapper"></div>');
+    page.wrap(wrapper);
+
+    // if there are no level2 or level3 headers synthesize a level3
+    // header to contain the (e.g. frame it, scroll container, etc.)
+    var headers = page.find('h2,h3');
+    if (headers.length === 0)
+      page.wrapInner('<div class="section level3"></div>');
+
+    // hoist up any content before level 2 or level 3 headers
+    var children = page.children();
+    children.each(function(index) {
+      if ($(this).hasClass('level2') || $(this).hasClass('level3'))
+        return false;
+      $(this).insertBefore(page);
+    });
+
+    // determine orientation and fillPage behavior for distinct media
+    var orientation, fillPage, storyboard;
+
+    // media: mobile phone
+    if (isMobilePhone()) {
+
+      // if there is a sidebar we need to ensure it's content
+      // is properly framed as an h3
+      var sidebar = page.find('.section.sidebar');
+      sidebar.removeClass('sidebar');
+      sidebar.wrapInner('<div class="section level3"></div>');
+      var h2 = sidebar.find('h2');
+      var h3 = $('<h3></h3>');
+      h3.append(h2.contents());
+      h3.insertBefore(h2);
+      h2.detach();
+
+      // wipeout h2 elements then enclose them in a single h2
+      var level2 = page.find('div.section.level2');
+      level2.each(function() {
+        level2.children('h2').remove();
+        level2.children().unwrap();
+      });
+      page.wrapInner('<div class="section level2"></div>');
+
+      // substitute mobile images
+      if (isPortrait()) {
+        var mobileFigures = $('img.mobile-figure');
+        mobileFigures.each(function() {
+          // get the src (might be base64 encoded)
+          var src = $(this).attr('src');
+
+          // find it's peer
+          var id = $(this).attr('data-mobile-figure-id');
+          var img = $('img[data-figure-id=' + id + "]");
+          img.attr('src', src)
+             .attr('width', _options.defaultFigWidthMobile)
+             .attr('height', _options.defaultFigHeightMobile);
+        });
+      }
+
+      // hoist storyboard commentary into it's own section
+      if (page.hasClass('storyboard')) {
+        var commentaryHR = page.find('div.section.level3 hr');
+        commentaryHR.each(function() {
+          var commentary = $(this).nextAll().detach();
+          var commentarySection = $('<div class="section level3"></div>');
+          commentarySection.append(commentary);
+          commentarySection.insertAfter($(this).closest('div.section.level3'));
+          $(this).remove();
+        });
+      }
+
+      // force a non full screen layout by columns
+      orientation = _options.orientation = 'columns';
+      fillPage = _options.fillPage = false;
+      storyboard = _options.storyboard = false;
+
+    // media: desktop
+    } else {
+
+      // determine orientation
+      orientation = page.attr('data-orientation');
+      if (orientation !== 'rows' && orientation != 'columns')
+        orientation = _options.orientation;
+
+      // determine storyboard mode
+      storyboard = page.hasClass('storyboard');
+
+      // fillPage based on options (force for storyboard)
+      fillPage = _options.fillPage || storyboard;
+
+      // handle sidebar
+      var sidebar = page.find('.section.level2.sidebar');
+      if (sidebar.length > 0)
+        layoutSidebar(sidebar, page);
+    }
+
+    // give it and it's parent divs height: 100% if we are in fillPage mode
+    if (fillPage) {
+      page.addClass('vertical-layout-fill');
+      page.css('height', '100%');
+      page.parents('div').css('height', '100%');
+    } else {
+      page.addClass('vertical-layout-scroll');
+    }
+
+    // perform the layout
+    if (storyboard)
+      layoutPageAsStoryboard(page);
+    else if (orientation === 'rows')
+      layoutPageByRows(page, fillPage);
+    else if (orientation === 'columns')
+      layoutPageByColumns(page, fillPage);
+  }
+
+  function layoutSidebar(sidebar, content) {
+
+    // get it out of the header hierarchy
+    sidebar = sidebar.first();
+    if (sidebar.hasClass('level1')) {
+      sidebar.removeClass('level1');
+      sidebar.children('h1').remove();
+    } else if (sidebar.hasClass('level2')) {
+      sidebar.removeClass('level2');
+      sidebar.children('h2').remove();
+    }
+
+    // determine width
+    var sidebarWidth = isTablet() ? 220 : 250;
+    var dataWidth = parseInt(sidebar.attr('data-width'));
+    if (dataWidth)
+      sidebarWidth = dataWidth;
+
+    // set the width and shift the page right to accomodate the sidebar
+    sidebar.css('width', sidebarWidth + 'px');
+    content.css('padding-left', sidebarWidth + 'px');
+
+    // wrap it's contents in a form
+    sidebar.wrapInner($('<form></form>'));
+  }
+
+  function layoutPageAsStoryboard(page) {
+
+    // create storyboard navigation
+    var nav = $('<div class="storyboard-nav"></div>');
+
+    // add navigation buttons
+    var prev = $('<button class="sbprev"><i class="fa fa-angle-left"></i></button>');
+    nav.append(prev);
+    var next= $('<button class="sbnext"><i class="fa fa-angle-right"></i></button>');
+    nav.append(next);
+
+    // add navigation frame
+    var frameList = $('<div class="sbframelist"></div>');
+    nav.append(frameList);
+    var ul = $('<ul></ul>');
+    frameList.append(ul);
+
+     // find all the level3 sections (those are the storyboard frames)
+    var frames = page.find('div.section.level3');
+    frames.each(function() {
+
+      // mark it
+      $(this).addClass('sbframe');
+
+      // divide it into chart content and (optional) commentary
+      $(this).addClass('dashboard-column-orientation');
+
+      // stuff the chart into it's own div w/ flex
+      $(this).wrapInner('<div class="sbframe-component"></div>');
+      setFlex($(this), 1);
+      var frame = $(this).children('.sbframe-component');
+
+      // extract the title from the h3
+      var li = $('<li></li>');
+      var h3 = frame.children('h3');
+      li.append(h3.contents());
+      h3.detach();
+      ul.append(li);
+
+      // extract commentary
+      var hr = frame.children('hr');
+      if (hr.length) {
+        var commentary = hr.nextAll().detach();
+        hr.remove();
+        var commentaryFrame = $('<div class="sbframe-commentary"></div>');
+        commentaryFrame.addClass('flowing-content-shim');
+        commentaryFrame.addClass('flowing-content-container');
+        commentaryFrame.append(commentary);
+        $(this).append(commentaryFrame);
+
+        // look for a data-commentary-width attribute
+        var commentaryWidth = $(this).attr('data-commentary-width');
+        if (commentaryWidth)
+          commentaryFrame.css('width', commentaryWidth + 'px');
+      }
+
+      // layout the chart (force flex)
+      var result = layoutChart(frame, true);
+
+      // ice the notes if there are none
+      if (!result.notes)
+        frame.find('.chart-notes').remove();
+
+      // set flex on chart
+      setFlex(frame, 1);
+    });
+
+    // create a div to hold all the frames
+    var frameContent = $('<div class="sbframe-content"></div>');
+    frameContent.addClass('dashboard-row-orientation');
+    frameContent.append(frames.detach());
+
+    // row orientation to stack nav and frame content
+    page.addClass('dashboard-row-orientation');
+    page.append(nav);
+    page.append(frameContent);
+    setFlex(frameContent, 1);
+
+    // initialize sly
+    var sly = new Sly(frameList, {
+    		horizontal: true,
+    		itemNav: 'basic',
+    		smart: true,
+    		activateOn: 'click',
+    		startAt: 0,
+    		scrollBy: 1,
+    		activatePageOn: 'click',
+    		speed: 200,
+    		moveBy: 600,
+    		dragHandle: true,
+    		dynamicHandle: true,
+    		clickBar: true,
+    		keyboardNavBy: 'items',
+    		next: next,
+    		prev: prev
+    	}).init();
+
+    // make first frame active
+    frames.removeClass('active');
+    frames.first().addClass('active');
+
+    // subscribe to frame changed events
+    sly.on('active', function (eventName, itemIndex) {
+      frames.removeClass('active');
+      frames.eq(itemIndex).addClass('active')
+                          .trigger('shown');
+    });
+  }
+
+  function layoutPageByRows(page, fillPage) {
+
+    // row orientation
+    page.addClass('dashboard-row-orientation');
+
+    // find all the level2 sections (those are the rows)
+    var rows = page.find('div.section.level2');
+
+    // if there are no level2 sections then treat the
+    // entire page as if it's a level 2 section
+    if (rows.length === 0) {
+      page.wrapInner('<div class="section level2"></div>');
+      rows = page.find('div.section.level2');
+    }
+
+    rows.each(function () {
+
+      // flags
+      var haveNotes = false;
+      var haveFlexHeight = true;
+
+      // remove the h2
+      $(this).children('h2').remove();
+
+      // check for a tabset
+      var isTabset = $(this).hasClass('tabset');
+      if (isTabset)
+        layoutTabset($(this));
+
+      // give it row layout semantics if it's not a tabset
+      if (!isTabset)
+        $(this).addClass('dashboard-row');
+
+      // find all of the level 3 subheads
+      var columns = $(this).find('div.section.level3');
+
+      // determine figureSizes sizes
+      var figureSizes = chartFigureSizes(columns);
+
+      // fixup the columns
+      columns.each(function(index) {
+
+        // layout the chart (force flex if we are in a tabset)
+        var result = layoutChart($(this), isTabset);
+
+        // update flexHeight state
+        if (!result.flex)
+          haveFlexHeight = false;
+
+        // update state
+        if (result.notes)
+          haveNotes = true;
+
+        // set the column flex based on the figure width
+        // (value boxes will just get the default figure width)
+        var chartWidth = figureSizes[index].width;
+        setFlex($(this), chartWidth + ' ' + chartWidth + ' 0px');
+
+      });
+
+      // remove empty chart note divs
+      if (isTabset)
+        $(this).find('.chart-notes').filter(function() {
+            return $(this).html() === "&nbsp;";
+        }).remove();
+      if (!haveNotes)
+        $(this).find('.chart-notes').remove();
+
+       // make it a flexbox row
+      if (haveFlexHeight)
+        $(this).addClass('dashboard-row-flex');
+
+      // now we can set the height on all the wrappers (based on maximum
+      // figure height + room for title and notes, or data-height on the
+      // container if specified). However, don't do this if there is
+      // no flex on any of the constituent columns
+      var flexHeight = null;
+      var dataHeight = parseInt($(this).attr('data-height'));
+      if (dataHeight)
+        flexHeight = adjustedHeight(dataHeight, columns.first());
+      else if (haveFlexHeight)
+        flexHeight = maxChartHeight(figureSizes, columns);
+      if (flexHeight) {
+        if (fillPage)
+          setFlex($(this), flexHeight + ' ' + flexHeight + ' 0px');
+        else {
+          $(this).css('height', flexHeight + 'px');
+          setFlex($(this), '0 0 ' + flexHeight + 'px');
+        }
+      }
+
+    });
+  }
+
+  function layoutPageByColumns(page, fillPage) {
+
+    // column orientation
+    page.addClass('dashboard-column-orientation');
+
+    // find all the level2 sections (those are the columns)
+    var columns = page.find('div.section.level2');
+
+    // if there are no level2 sections then treat the
+    // entire page as if it's a level 2 section
+    if (columns.length === 0) {
+      page.wrapInner('<div class="section level2"></div>');
+      columns = page.find('div.section.level2');
+    }
+
+    // layout each column
+    columns.each(function (index) {
+
+      // remove the h2
+      $(this).children('h2').remove();
+
+      // make it a flexbox column
+      $(this).addClass('dashboard-column');
+
+      // check for a tabset
+      var isTabset = $(this).hasClass('tabset');
+      if (isTabset)
+        layoutTabset($(this));
+
+      // find all the h3 elements
+      var rows = $(this).find('div.section.level3');
+
+      // get the figure sizes for the rows
+      var figureSizes = chartFigureSizes(rows);
+
+      // column flex is the max row width (or data-width if specified)
+      var flexWidth;
+      var dataWidth = parseInt($(this).attr('data-width'));
+      if (dataWidth)
+        flexWidth = dataWidth;
+      else
+        flexWidth = maxChartWidth(figureSizes);
+      setFlex($(this), flexWidth + ' ' + flexWidth + ' 0px');
+
+      // layout each chart
+      rows.each(function(index) {
+
+        // perform the layout
+        var result = layoutChart($(this), false);
+
+        // ice the notes if there are none
+        if (!result.notes)
+          $(this).find('.chart-notes').remove();
+
+        // set flex height based on figHeight, then adjust
+        if (result.flex) {
+          var chartHeight = figureSizes[index].height;
+          chartHeight = adjustedHeight(chartHeight, $(this));
+          if (fillPage)
+            setFlex($(this), chartHeight + ' ' + chartHeight + ' 0px');
+          else {
+            $(this).css('height', chartHeight + 'px');
+            setFlex($(this), chartHeight + ' ' + chartHeight + ' ' + chartHeight + 'px');
+          }
+        }
+      });
+    });
+  }
+
+  function chartFigureSizes(charts) {
+
+    // sizes
+    var figureSizes = new Array(charts.length);
+
+    // check each chart
+    charts.each(function(index) {
+
+      // start with default
+      figureSizes[index] = {
+        width: _options.defaultFigWidth,
+        height: _options.defaultFigHeight
+      };
+
+      // look for data-height or data-width then knit options
+      var dataWidth = parseInt($(this).attr('data-width'));
+      var dataHeight = parseInt($(this).attr('data-height'));
+      var knitrOptions = $(this).find('.knitr-options:first');
+      var knitrWidth, knitrHeight;
+      if (knitrOptions) {
+        knitrWidth = parseInt(knitrOptions.attr('data-fig-width'));
+        knitrHeight =  parseInt(knitrOptions.attr('data-fig-height'));
+      }
+
+      // width
+      if (dataWidth)
+        figureSizes[index].width = dataWidth;
+      else if (knitrWidth)
+        figureSizes[index].width = knitrWidth;
+
+      // height
+      if (dataHeight)
+        figureSizes[index].height = dataHeight;
+      else if (knitrHeight)
+        figureSizes[index].height = knitrHeight;
+    });
+
+    // return sizes
+    return figureSizes;
+  }
+
+  function maxChartHeight(figureSizes, charts) {
+
+    // first compute the maximum height
+    var maxHeight = _options.defaultFigHeight;
+    for (var i = 0; i<figureSizes.length; i++)
+      if (figureSizes[i].height > maxHeight)
+        maxHeight = figureSizes[i].height;
+
+    // now add offests for chart title and chart notes
+    if (charts.length)
+      maxHeight = adjustedHeight(maxHeight, charts.first());
+
+    return maxHeight;
+  }
+
+  function adjustedHeight(height, chart) {
+    if (chart.length > 0) {
+      var chartTitle = chart.find('.chart-title');
+      if (chartTitle.length)
+        height += chartTitle.first().outerHeight();
+      var chartNotes = chart.find('.chart-notes');
+      if (chartNotes.length)
+        height += chartNotes.first().outerHeight();
+    }
+    return height;
+  }
+
+  function maxChartWidth(figureSizes) {
+    var maxWidth = _options.defaultFigWidth;
+    for (var i = 0; i<figureSizes.length; i++)
+      if (figureSizes[i].width > maxWidth)
+        maxWidth = figureSizes[i].width;
+    return maxWidth;
+  }
+
+  // layout a chart
+  function layoutChart(chart, forceFlex) {
+
+    // state to return
+    var result = {
+      notes: false,
+      flex: false
+    };
+
+    // extract the title
+    var title = extractTitle(chart);
+
+    // find components that apply to this container
+    var components = componentsFind(chart);
+
+    // if it's a custom component then call it and return
+    var customComponents = componentsCustom(components);
+    if (customComponents.length) {
+      componentsLayout(customComponents, title, chart);
+      result.notes = false;
+      result.flex = forceFlex || componentsFlex(customComponents);
+      return result;
+    }
+
+    // put all the content in a chart wrapper div
+    chart.addClass('chart-wrapper');
+    chart.wrapInner('<div class="chart-stage"></div>');
+    var chartContent = chart.children('.chart-stage');
+
+    // flex the content if appropriate
+    result.flex = forceFlex || componentsFlex(components);
+    if (result.flex) {
+      // add flex classes
+      chart.addClass('chart-wrapper-flex');
+      chartContent.addClass('chart-stage-flex');
+
+      // additional shim to break out of flexbox sizing
+      chartContent.wrapInner('<div class="chart-shim"></div>');
+      chartContent = chartContent.children('.chart-shim');
+    }
+
+    // set custom data-padding attribute
+    var pad = chart.attr('data-padding');
+    if (pad) {
+      if (pad === "0")
+        chart.addClass('no-padding');
+      else {
+        pad = pad + 'px';
+        chartContent.css('left', pad)
+                    .css('top', pad)
+                    .css('right', pad)
+                    .css('bottom', pad)
+      }
+    }
+
+    // call compoents
+    componentsLayout(components, title, chartContent);
+
+    // also activate components on shiny output
+    findShinyOutput(chartContent).on('shiny:value',
+      function(event) {
+        var element = $(event.target);
+        setTimeout(function() {
+
+          // see if we opted out of flex based on our output (for shiny
+          // we can't tell what type of output we have until after the
+          // value is bound)
+          var components = componentsFind(element);
+          var flex = forceFlex || componentsFlex(components);
+          if (!flex) {
+            chart.css('height', "");
+            setFlex(chart, "");
+            chart.removeClass('chart-wrapper-flex');
+            chartContent.removeClass('chart-stage-flex');
+            chartContent.children().unwrap();
+          }
+
+          // perform layout
+          componentsLayout(components, title, element.parent());
+        }, 10);
+      });
+
+    // add the title
+    var chartTitle = $('<div class="chart-title"></div>');
+    chartTitle.append(title);
+    chart.prepend(chartTitle);
+
+    // add the notes section
+    var chartNotes = $('<div class="chart-notes"></div>');
+    chartNotes.html('&nbsp;');
+    chart.append(chartNotes);
+
+    // attempt to extract notes if we have a component
+    if (components.length)
+      result.notes = extractChartNotes(chartContent, chartNotes);
+
+    // return result
+    return result;
+  }
+
+  // build a tabset from a section div with the .tabset class
+  function layoutTabset(tabset) {
+
+    // check for fade option
+    var fade = tabset.hasClass("tabset-fade");
+    var navClass = "nav-tabs";
+
+    // determine the heading level of the tabset and tabs
+    var match = tabset.attr('class').match(/level(\d) /);
+    if (match === null)
+      return;
+    var tabsetLevel = Number(match[1]);
+    var tabLevel = tabsetLevel + 1;
+
+    // find all subheadings immediately below
+    var tabs = tabset.find("div.section.level" + tabLevel);
+    if (!tabs.length)
+      return;
+
+    // create tablist and tab-content elements
+    var tabList = $('<ul class="nav ' + navClass + '" role="tablist"></ul>');
+    $(tabs[0]).before(tabList);
+    var tabContent = $('<div class="tab-content"></div>');
+    $(tabs[0]).before(tabContent);
+
+    // build the tabset
+    tabs.each(function(i) {
+
+      // get the tab div
+      var tab = $(tabs[i]);
+
+      // get the id then sanitize it for use with bootstrap tabs
+      var id = tab.attr('id');
+
+      // sanitize the id for use with bootstrap tabs
+      id = id.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_');
+      tab.attr('id', id);
+
+      // get the heading element within it and grab it's text
+      var heading = tab.find('h' + tabLevel + ':first');
+      var headingDom = heading.contents();
+
+      // build and append the tab list item
+      var a = $('<a role="tab" data-toggle="tab"></a>');
+      a.append(headingDom);
+      a.attr('href', '#' + id);
+      a.attr('aria-controls', id);
+      var li = $('<li role="presentation"></li>');
+      li.append(a);
+      if (i === 0)
+        li.attr('class', 'active');
+      tabList.append(li);
+
+      // set it's attributes
+      tab.attr('role', 'tabpanel');
+      tab.addClass('tab-pane');
+      tab.addClass('tabbed-pane');
+      tab.addClass('no-title');
+      if (fade)
+        tab.addClass('fade');
+      if (i === 0) {
+        tab.addClass('active');
+        if (fade)
+          tab.addClass('in');
+      }
+
+      // move it into the tab content div
+      tab.detach().appendTo(tabContent);
+    });
+
+    // add nav-tabs-custom
+    tabset.addClass('nav-tabs-custom');
+
+    // internal layout is dashboard-column with tab-content flexing
+    tabset.addClass('dashboard-column');
+    setFlex(tabContent, 1);
+  }
+
+  // one time global initialization for components
+  function componentsInit(dashboardContainer) {
+    for (var i=0; i<window.FlexDashboardComponents.length; i++) {
+      var component = window.FlexDashboardComponents[i];
+      if (component.init)
+        component.init(dashboardContainer);
+    }
+  }
+
+  // find components that apply within a container
+  function componentsFind(container) {
+
+    // look for components
+    var components = [];
+    for (var i=0; i<window.FlexDashboardComponents.length; i++) {
+      var component = window.FlexDashboardComponents[i];
+      if (component.find(container).length)
+        components.push(component);
+    }
+
+    // if there were none then use a special flowing content component
+    // that just adds a scrollbar in fillPage mode
+    if (components.length == 0) {
+      components.push({
+        find: function(container) {
+          return container;
+        },
+
+        flex: function(fillPage) {
+          return fillPage;
+        },
+
+        layout: function(title, container, element, fillPage) {
+          if (fillPage) {
+            container.addClass('flowing-content-shim');
+            container.addClass('flowing-content-container');
+          }
+        }
+      });
+    }
+
+    return components;
+  }
+
+  // if there is a custom component then pick it out
+  function componentsCustom(components) {
+    var customComponent = [];
+    for (var i=0; i<components.length; i++)
+      if (components[i].type === "custom") {
+        customComponent.push(components[i]);
+        break;
+      }
+    return customComponent;
+  }
+
+  // query all components for flex
+  function componentsFlex(components) {
+
+    // no components at all means no flex
+    if (components.length === 0)
+      return false;
+
+    // otherwise query components (assume true unless we see false)
+    var isMobile = isMobilePhone();
+    for (var i=0; i<components.length; i++)
+      if (components[i].flex && !components[i].flex(_options.fillPage))
+        return false;
+    return true;
+  }
+
+  // layout all components
+  function componentsLayout(components, title, container) {
+    var isMobile = isMobilePhone();
+    for (var i=0; i<components.length; i++) {
+      var element = components[i].find(container);
+      if (components[i].layout) {
+        // call layout (don't call other components if it returns false)
+        var result = components[i].layout(title, container, element, _options.fillPage);
+        if (result === false)
+          return;
+      }
+    }
+  }
+
+  // get a reference to the h3, discover it's inner html, and remove it
+  function extractTitle(container) {
+    var h3 = container.children('h3').first();
+    var title = '';
+    if (!container.hasClass('no-title'))
+      title = h3.contents();
+    h3.detach();
+    return title;
+  }
+
+  // extract chart notes
+  function extractChartNotes(chartContent, chartNotes) {
+    // look for a terminating blockquote or image caption
+    var blockquote = chartContent.children('blockquote:last-child');
+    var caption = chartContent.children('div.image-container')
+                              .children('p.caption');
+    if (blockquote.length) {
+      chartNotes.empty().append(blockquote.children('p:first-child').contents());
+      blockquote.remove();
+      return true;
+    } else if (caption.length) {
+      chartNotes.empty().append(caption.contents());
+      caption.remove();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function findShinyOutput(chartContent) {
+    return chartContent.find('.shiny-text-output, .shiny-html-output');
+  }
+
+  // safely detect rendering on a mobile phone
+  function isMobilePhone() {
+    try
+    {
+      return ! window.matchMedia("only screen and (min-width: 768px)").matches;
+    }
+    catch(e) {
+      return false;
+    }
+  }
+
+  function isFillPage() {
+    return _options.fillPage;
+  }
+
+  // detect portrait mode
+  function isPortrait() {
+    return ($(window).width() < $(window).height());
+  }
+
+  // safely detect rendering on a tablet
+  function isTablet() {
+    try
+    {
+      return window.matchMedia("only screen and (min-width: 769px) and (max-width: 992px)").matches;
+    }
+    catch(e) {
+      return false;
+    }
+  }
+
+  // test whether this is a shiny doc
+  function isShinyDoc() {
+    return (typeof(window.Shiny) !== "undefined" && !!window.Shiny.outputBindings);
+  }
+
+  // set flex using vendor specific prefixes
+  function setFlex(el, flex) {
+    el.css('-webkit-box-flex', flex)
+      .css('-webkit-flex', flex)
+      .css('-ms-flex', flex)
+      .css('flex', flex);
+  }
+
+  // support bookmarking of pages
+  function handleLocationHash() {
+
+    // restore tab/page from bookmark
+    var hash = window.decodeURIComponent(window.location.hash);
+    if (hash.length > 0)
+      $('ul.nav a[href="' + hash + '"]').tab('show');
+    FlexDashboardUtils.manageActiveNavbarMenu();
+
+    // navigate to a tab when the history changes
+    window.addEventListener("popstate", function(e) {
+      var hash = window.decodeURIComponent(window.location.hash);
+      var activeTab = $('ul.nav a[href="' + hash + '"]');
+      if (activeTab.length) {
+        activeTab.tab('show');
+      } else {
+        $('ul.nav a:first').tab('show');
+      }
+      FlexDashboardUtils.manageActiveNavbarMenu();
+    });
+
+    // add a hash to the URL when the user clicks on a tab/page
+    $('.navbar-nav a[data-toggle="tab"]').on('click', function(e) {
+      var baseUrl = FlexDashboardUtils.urlWithoutHash(window.location.href);
+      var hash = FlexDashboardUtils.urlHash($(this).attr('href'));
+      var href = baseUrl + hash;
+      FlexDashboardUtils.setLocation(href);
+    });
+
+    // handle clicks of other links that should activate pages
+    var navPages = $('ul.navbar-nav li a[data-toggle=tab]');
+    navPages.each(function() {
+      var href =  $(this).attr('href');
+      var links = $('a[href="' + href + '"][data-toggle!=tab]');
+      links.each(function() {
+        $(this).on('click', function(e) {
+          window.FlexDashboardUtils.showPage(href);
+        });
+      });
+    });
+  }
+
+  // tweak Prism highlighting
+  function initPrismHighlighting() {
+
+    if (window.Prism) {
+      Prism.languages.insertBefore('r', 'comment', {
+        'heading': [
+          {
+            // title 1
+        	  // =======
+
+        	  // title 2
+        	  // -------
+        	  pattern: /\w+.*(?:\r?\n|\r)(?:====+|----+)/,
+            alias: 'operator'
+          },
+          {
+            // ### title 3
+            pattern: /(^\s*)###[^#].+/m,
+            lookbehind: true,
+            alias: 'operator'
+          }
+        ]
+      });
+
+      // prism highlight
+      Prism.highlightAll();
+    }
+  }
+
+
+  // get theme color
+  var themeColors = {
+    bootstrap: {
+      primary: "rgba(51, 122, 183, 0.4)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    cerulean: {
+      primary: "rgb(47, 164, 231)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    journal: {
+      primary: "rgba(235, 104, 100, 0.70)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    flatly: {
+      primary: "rgba(44, 62, 80, 0.70)",
+      info: "rgba(52, 152, 219, 0.70)",
+      success: "rgba(24, 188, 156, 0.70)",
+      warning: "rgba(243, 156, 18, 0.70)",
+      danger: "rgba(231, 76, 60, 0.70)"
+    },
+    readable: {
+      primary: "rgba(69, 130, 236, 0.4)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    spacelab: {
+      primary: "rgba(68, 110, 155, 0.25)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    united: {
+      primary: "rgba(221, 72, 20, 0.30)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    cosmo: {
+      primary: "rgba(39, 128, 227, 0.7)",
+      info: "rgba(153, 84, 187, 0.7)",
+      success: "rgba(63, 182, 24, 0.7)",
+      warning: "rgba(255, 117, 24, 0.7)",
+      danger: "rgba(255, 0, 57, 0.7)"
+    },
+    lumen: {
+      primary: "rgba(21, 140, 186, 0.70)",
+      info: "rgba(117, 202, 235, 0.90)",
+      success: "rgba(40, 182, 44, 0.70)",
+      warning: "rgba(255, 133, 27, 0.70)",
+      danger: "rgba(255, 65, 54, 0.70)"
+    },
+    paper: {
+      primary: "rgba(33, 150, 243, 0.35)",
+      info: "rgb(225, 190, 231)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(255, 224, 178)",
+      danger: "rgb(249, 189, 187)"
+    },
+    sandstone: {
+      primary: "rgba(50, 93, 136, 0.3)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    simplex: {
+      primary: "rgba(217, 35, 15, 0.25)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    },
+    yeti: {
+      primary: "rgba(0, 140, 186, 0.298039)",
+      info: "rgb(217, 237, 247)",
+      success: "rgb(223, 240, 216)",
+      warning: "rgb(252, 248, 227)",
+      danger: "rgb(242, 222, 222)"
+    }
+  }
+  function themeColor(color) {
+    return themeColors[_options.theme][color];
+  }
+
+  FlexDashboard.prototype = {
+    constructor: FlexDashboard,
+    init: init,
+    isMobilePhone: isMobilePhone,
+    isFillPage: isFillPage,
+    themeColor: themeColor
+  };
+
+  return FlexDashboard;
+
+})();
+
+// utils
+window.FlexDashboardUtils = {
+  resizableImage: function(img) {
+    var src = img.attr('src');
+    var url = 'url("' + src + '")';
+    img.parent().css('background', url)
+                .css('background-size', 'contain')
+                .css('background-repeat', 'no-repeat')
+                .css('background-position', 'center')
+                .addClass('image-container');
+  },
+  setLocation: function(href) {
+    if (history && history.pushState) {
+      history.pushState(null, null, href);
+    } else {
+      window.location.replace(href);
+    }
+    setTimeout(function() {
+        window.scrollTo(0, 0);
+    }, 10);
+    this.manageActiveNavbarMenu();
+  },
+  showPage: function(href) {
+    $('ul.navbar-nav li a[href="' + href + '"]').tab('show');
+    var baseUrl = this.urlWithoutHash(window.location.href);
+    var loc = baseUrl + href;
+    this.setLocation(loc);
+  },
+  showLinkedValue: function(href) {
+    // check for a page link
+    if ($('ul.navbar-nav li a[data-toggle=tab][href="' + href + '"]').length > 0)
+      this.showPage(href);
+    else
+      window.open(href);
+  },
+  urlWithoutHash: function(url) {
+    var hashLoc = url.indexOf('#');
+    if (hashLoc != -1)
+      return url.substring(0, hashLoc);
+    else
+      return url;
+  },
+  urlHash: function(url) {
+    var hashLoc = url.indexOf('#');
+    if (hashLoc != -1)
+      return url.substring(hashLoc);
+    else
+      return "";
+  },
+  manageActiveNavbarMenu: function () {
+    // remove active from anyone currently active
+    $('.navbar ul.nav').find('li').removeClass('active');
+    // find the active tab
+    var activeTab = $('.dashboard-page-wrapper.tab-pane.active');
+    if (activeTab.length > 0) {
+      var tabId = activeTab.attr('id');
+      if (tabId)
+        $(".navbar ul.nav a[href='#" + tabId + "']").parents('li').addClass('active');
+    }
+  }
+};
+
+window.FlexDashboard = new FlexDashboard();
+
+// empty content
+window.FlexDashboardComponents.push({
+  find: function(container) {
+    if (container.find('p').length == 0)
+      return container;
+    else
+      return $();
+  }
+})
+
+// plot image
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('p')
+                    .children('img:only-child');
+  },
+
+  layout: function(title, container, element, fillPage) {
+    FlexDashboardUtils.resizableImage(element);
+  }
+});
+
+// plot image (figure style)
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('div.figure').children('img');
+  },
+
+  layout: function(title, container, element, fillPage) {
+    FlexDashboardUtils.resizableImage(element);
+  }
+});
+
+// htmlwidget
+window.FlexDashboardComponents.push({
+
+  init: function(dashboardContainer) {
+    // trigger "shown" after initial layout to force static htmlwidgets
+    // in runtime: shiny to be resized after the dom has been transformed
+    dashboardContainer.on('flexdashboard:layoutcomplete', function(event) {
+      setTimeout(function() {
+        dashboardContainer.trigger('shown');
+      }, 200);
+    });
+  },
+
+  find: function(container) {
+    return container.children('div[id^="htmlwidget-"],div.html-widget');
+  }
+});
+
+// gauge
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('div.html-widget.gauge');
+  },
+
+  flex: function(fillPage) {
+    return false;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+
+  }
+
+});
+
+// shiny output
+window.FlexDashboardComponents.push({
+  find: function(container) {
+    return container.children('div[class^="shiny-"]');
+  }
+});
+
+// datatables
+window.FlexDashboardComponents.push({
+  find: function(container) {
+    return container.find('.datatables');
+  },
+  flex: function(fillPage) {
+    return fillPage;
+  }
+});
+
+// bootstrap table
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    var bsTable = container.find('table.table');
+    if (bsTable.length !== 0)
+      return bsTable;
+    else
+      return container.find('tr.header').parent('thead').parent('table');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+    // alias variables
+    var bsTable = element;
+
+    // fixup xtable generated tables with a proper thead
+    var headerRow = bsTable.find('tbody > tr:first-child > th').parent();
+    if (headerRow.length > 0) {
+      var thead = $('<thead></thead>');
+      bsTable.prepend(thead);
+      headerRow.detach().appendTo(thead);
+    }
+
+    // improve appearance
+    container.addClass('bootstrap-table');
+
+    // for fill page provide scrolling w/ sticky headers
+    if (fillPage) {
+      // force scrollbar on overflow
+      container.addClass('flowing-content-shim');
+
+      // stable table headers when scrolling
+      bsTable.stickyTableHeaders({
+        scrollableArea: container
+      });
+    }
+  }
+});
+
+// embedded shiny app
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.find('iframe.shiny-frame');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+    if (fillPage) {
+      element.attr('height', '100%');
+    } else {
+      // provide default height if necessary
+      var height = element.get(0).style.height;
+      if (!height)
+        height = element.attr('height');
+      if (!height)
+        element.attr('height', 500);
+    }
+  }
+});
+
+// shiny fillRow or fillCol
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.find('.flexfill-container');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+    if (fillPage)
+      element.css('height', '100%');
+    else {
+      // provide default height if necessary
+      var height = element.get(0).style.height;
+      if (height === "100%" || height === "auto" || height === "initial" ||
+          height === "inherit" || !height) {
+        element.css('height', 500);
+      }
+    }
+  }
+});
+
+// valueBox
+window.FlexDashboardComponents.push({
+
+  type: "custom",
+
+  find: function(container) {
+    if (container.find('span.value-output, .shiny-valuebox-output').length)
+      return container;
+    else
+      return $();
+  },
+
+  flex: function(fillPage) {
+    return false;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+    // alias variables
+    var chartTitle = title;
+    var valueBox = element;
+
+    // add value-box class to container
+    container.addClass('value-box');
+
+    // value paragraph
+    var value = $('<p class="value"></p>');
+
+    // if we have shiny-text-output then just move it in
+    var valueOutputSpan = [];
+    var shinyOutput = valueBox.find('.shiny-valuebox-output').detach();
+    if (shinyOutput.length) {
+      valueBox.children().remove();
+      shinyOutput.html("&mdash;");
+      value.append(shinyOutput);
+    } else {
+      // extract the value (remove leading vector index)
+      var chartValue = valueBox.text().trim();
+      chartValue = chartValue.replace("[1] ", "");
+      valueOutputSpan = valueBox.find('span.value-output').detach();
+      valueBox.children().remove();
+      value.text(chartValue);
+    }
+
+    // caption
+    var caption = $('<p class="caption"></p>');
+    caption.append(chartTitle);
+
+    // build inner div for value box and add it
+    var inner = $('<div class="inner"></div>');
+    inner.append(value);
+    inner.append(caption);
+    valueBox.append(inner);
+
+    // add icon if specified
+    var icon = $('<div class="icon"><i></i></div>');
+    valueBox.append(icon);
+    function setIcon(chartIcon) {
+      var iconLib = "";
+      var iconSplit = chartIcon.split(" ");
+      if (iconSplit.length > 1) {
+        iconLib = iconSplit[0];
+        chartIcon = iconSplit.slice(1).join(" ");
+      } else {
+        var components = chartIcon.split("-");
+        if (components.length > 1)
+          iconLib = components[0];
+      }
+      icon.children('i').attr('class', iconLib + ' ' + chartIcon);
+    }
+    var chartIcon = valueBox.attr('data-icon');
+    if (chartIcon)
+      setIcon(chartIcon);
+
+    // set color based on data-background if necessary
+    var dataBackground = valueBox.attr('data-background');
+    if (dataBackground)
+      valueBox.css('background-color', bgColor);
+    else {
+      // default to bg-primary if no other background is specified
+      if (!valueBox.hasClass('bg-primary') &&
+          !valueBox.hasClass('bg-info') &&
+          !valueBox.hasClass('bg-warning') &&
+          !valueBox.hasClass('bg-success') &&
+          !valueBox.hasClass('bg-danger')) {
+        valueBox.addClass('bg-primary');
+      }
+    }
+
+    // handle data attributes in valueOutputSpan
+    function handleValueOutput(valueOutput) {
+
+      // caption
+      var dataCaption = valueOutput.attr('data-caption');
+      if (dataCaption)
+        caption.html(dataCaption);
+
+      // icon
+      var dataIcon = valueOutput.attr('data-icon');
+      if (dataIcon)
+        setIcon(dataIcon);
+
+      // color
+      var dataColor = valueOutput.attr('data-color');
+      if (dataColor) {
+        if (dataColor.indexOf('bg-') === 0) {
+          valueBox.css('background-color', '');
+          if (!valueBox.hasClass(dataColor)) {
+             valueBox.removeClass('bg-primary bg-info bg-warning bg-danger bg-success');
+             valueBox.addClass(dataColor);
+          }
+        } else {
+          valueBox.removeClass('bg-primary bg-info bg-warning bg-danger bg-success');
+          valueBox.css('background-color', dataColor);
+        }
+      }
+
+      // url
+      var dataHref = valueOutput.attr('data-href');
+      if (dataHref) {
+        valueBox.addClass('linked-value');
+        valueBox.off('click.value-box');
+        valueBox.on('click.value-box', function(e) {
+          window.FlexDashboardUtils.showLinkedValue(dataHref);
+        });
+      }
+    }
+
+    // check for a valueOutputSpan
+    if (valueOutputSpan.length > 0) {
+      handleValueOutput(valueOutputSpan);
+    }
+
+    // if we have a shinyOutput then bind a listener to handle
+    // new valueOutputSpan values
+    shinyOutput.on('shiny:value',
+      function(event) {
+        var element = $(event.target);
+        setTimeout(function() {
+          var valueOutputSpan = element.find('span.value-output');
+          if (valueOutputSpan.length > 0)
+            handleValueOutput(valueOutputSpan);
+        }, 10);
+      }
+    );
+  }
+});
+</script>
+
+<div id="dashboard-container">
+
+<div id="column" class="section level2" data-width="650">
+<h2>Column</h2>
+<div id="chart-a-modi1" class="section level3">
+<h3>Chart A Modi1</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div id="htmlwidget-1e0ada1b222f7b14efa6" style="width:576px;height:460.8px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1e0ada1b222f7b14efa6">{"x":{"visdat":{"47b42c7b7bad":["function () ","plotlyVisDat"]},"cur_data":"47b42c7b7bad","attrs":{"47b42c7b7bad":{"x":{},"y":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20]}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Sepal.Length"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Petal.Length"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],"y":[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],"type":"scatter","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="column-1" class="section level2" data-width="350">
+<h2>Column</h2>
+<div id="chart-b" class="section level3">
+<h3>Chart B</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div id="htmlwidget-8af34bd8cd826c742476" style="width:576px;height:460.8px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8af34bd8cd826c742476">{"x":{"visdat":{"47b410b86572":["function () ","plotlyVisDat"]},"cur_data":"47b410b86572","attrs":{"47b410b86572":{"x":{},"y":{},"color":{},"colors":["red","blue","green"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20]}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Sepal.Length"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Petal.Length"},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5],"y":[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4],"type":"scatter","mode":"markers","name":"setosa","marker":{"color":"rgba(255,0,0,1)","line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)"},"error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7],"y":[4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1],"type":"scatter","mode":"markers","name":"versicolor","marker":{"color":"rgba(0,0,255,1)","line":{"color":"rgba(0,0,255,1)"}},"textfont":{"color":"rgba(0,0,255,1)"},"error_y":{"color":"rgba(0,0,255,1)"},"error_x":{"color":"rgba(0,0,255,1)"},"line":{"color":"rgba(0,0,255,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],"y":[6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],"type":"scatter","mode":"markers","name":"virginica","marker":{"color":"rgba(0,255,0,1)","line":{"color":"rgba(0,255,0,1)"}},"textfont":{"color":"rgba(0,255,0,1)"},"error_y":{"color":"rgba(0,255,0,1)"},"error_x":{"color":"rgba(0,255,0,1)"},"line":{"color":"rgba(0,255,0,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="chart-c" class="section level3">
+<h3>Chart C</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div id="htmlwidget-ef4580ebb3ff784b85d5" style="width:576px;height:460.8px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ef4580ebb3ff784b85d5">{"x":{"visdat":{"47b46fcd5eaf":["function () ","plotlyVisDat"]},"cur_data":"47b46fcd5eaf","attrs":{"47b46fcd5eaf":{"x":{},"y":{},"text":{},"color":{},"size":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20]}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"carat"},"yaxis":{"domain":[0,1],"automargin":true,"title":"price"},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2.22,0.43,1,1,0.4,0.31,0.72,0.71,1.5,1.57,0.53,1.51,0.9,1.21,0.72,0.54,1.2,1.01,1.16,0.36,0.4,0.4,1.51,1.13,0.9,0.51,0.79,0.57,1.06,0.33,0.41,0.3,0.42,1.07,0.3,0.61,1.03,0.9,1.07,1.01,0.52,0.52,0.76,0.33,1.32,0.31,0.7,1.14,0.32,1.01,0.32,0.82,0.51,0.5,0.45,0.31,0.63,1.01,0.52,0.66,1.32,1.01,0.53,1.53,0.71,1.04,0.43,0.51,1.19,0.42,1.59,0.7,1.35,0.37,0.4,0.5,0.3,1.28,0.7,0.53,1.01,0.44,0.4,0.42,0.35,0.32,1.14,0.81,0.31,0.72,1,0.42,0.27,0.4,1.5,0.8,0.53,0.37,2.5,1.02,0.79,0.73,0.72,0.71,0.87,0.32,0.36,0.34,0.56,1.21,0.31,0.36,0.53,0.81,0.31,0.43,0.41,1.07,0.7,0.41,0.4,1.21,0.75,0.52,0.4,1.2,0.73,0.38,1,0.9,1.18,0.73,0.51,1.01,0.33,0.47,0.5,0.37,0.27,0.31,0.35,0.72,1.14,0.59,1.51,0.38,0.51,0.3,1.16,0.7,0.9,0.3,0.28,1.33,0.78,0.42,0.7,0.35,1.54,0.5,0.41,0.32,0.9,1.06,0.73,0.91,0.46,1.01,0.7,0.3,1.06,1.06,1.51,1.15,0.7,0.88,1.6,1.03,0.71,0.3,0.7,0.3,1.2,1.53,0.31,1.03,1.33,0.53,0.37,1,0.52,0.36,0.7,0.59,0.84,0.37,1.54,1.08,2,0.82,1.75,0.41,0.92,0.4,0.72,0.41,1.01,0.59,0.31,0.3,0.37,0.93,0.74,0.65,1.21,0.24,0.41,0.44,1.5,0.91,1,0.55,0.52,0.41,1.01,1.52,0.59,1.71,1,0.51,0.4,0.32,0.39,1.15,0.33,0.33,1.17,0.35,1.24,1.02,1.54,1.1,0.31,1.01,0.32,0.38,0.72,0.7,1,0.51,1.05,1.11,0.41,0.27,0.31,1,1.03,0.74,1.04,0.31,1.7,1.38,1.14,0.93,1.01,1.22,1.2,1.2,0.36,1.01,0.52,1.15,1.02,0.7,0.96,0.31,0.51,0.3,0.5,0.32,0.3,0.9,1.69,0.44,0.41,1.21,0.53,0.26,0.9,0.64,0.72,1,0.71,0.74,1.2,1.08,0.53,0.53,0.72,0.62,1.11,1.09,0.36,1,0.37,0.52,0.7,0.4,1.11,1.17,0.4,0.42,2.21,0.42,0.37,0.3,1,0.72,0.85,1.01,0.31,0.32,1.01,0.91,0.3,0.71,0.51,0.54,0.75,1.01,0.3,0.59,0.5,0.51,0.6,0.71,0.36,0.3,0.38,0.34,0.71,0.33,0.3,0.72,0.3,0.42,0.4,1.01,2.01,0.3,0.5,0.41,1.59,0.53,1,0.41,0.25,0.3,0.33,1.06,0.59,0.3,1.25,0.26,0.76,0.59,0.39,0.52,0.28,0.5,0.41,0.4,1.32,1.02,0.26,1.23,0.54,0.76,1,0.71,0.74,0.3,0.51,0.3,0.9,0.55,0.33,0.7,2,1.61,0.3,2.02,0.71,1.01,1.67,1.19,0.33,0.29,0.9,1.5,0.58,0.5,0.3,0.71,2.11,1.31,0.31,0.74,1.02,0.7,0.51,0.33,0.54,0.54,0.5,2.02,0.3,0.36,0.3,0.3,0.57,0.43,1.51,1.68,0.58,0.44,0.31,0.71,1.51,0.52,0.5,1.5,0.51,0.71,1.13,2.17,0.7,1,2.1,0.27,0.7,1.25,1.21,1.02,1.03,0.71,0.48,0.53,0.46,0.46,1.02,0.4,0.9,0.34,1.13,0.32,1.55,0.33,0.33,0.24,1.07,0.32,1.5,0.77,0.41,0.4,0.54,0.31,0.33,0.32,0.32,1.06,0.32,0.41,1.2,1.07,2.07,0.31,1.01,1.7,0.55,0.42,0.59,1.01,0.9,0.51,0.28,1.51,0.59,0.54,0.7,0.4,1.52,1,1.54,1.52,0.99,2,0.92,0.53,1.55,1.52,0.59,0.31,0.51,1.55,0.51,0.31,0.41,1.05,0.41,1.19,1.02,1.7,0.3,0.41,0.3,0.41,1.39,0.52,0.71,0.31,0.9,1.12,0.31,1.58,0.35,0.82,0.71,0.52,2.26,0.56,1.1,0.52,2.1,0.53,0.41,1.2,1.31,0.41,0.31,0.31,1.15,0.31,0.9,0.71,1,0.75,0.31,0.34,0.73,1.53,0.39,0.7,0.7,0.9,2.12,0.9,0.7,0.5,0.39,0.4,1.5,0.3,0.33,0.32,0.41,0.35,1.13,1.05,0.23,1.18,1.51,0.75,2.03,0.74,0.72,1,0.5,0.9,0.27,0.33,2.06,0.54,1.73,0.64,0.5,0.92,1.05,0.6,1.59,1.01,0.54,0.3,0.32,0.34,1.62,0.72,1,0.34,0.47,0.26,0.7,0.59,1,0.31,1.36,1,0.81,1.71,1.02,0.43,1.5,1.5,1.02,1.59,0.4,0.36,1.01,1.18,0.32,1.51,2.05,1.02,1.23,1.11,0.4,1.02,1.59,0.37,1.01,0.25,0.54,0.51,1.51,2.51,0.32,1.21,0.57,0.55,1,0.72,0.37,0.51,1.03,0.44,1.16,0.7,1.09,0.9,1.59,0.72,1.51,0.54,1.22,0.32,1.06,0.3,0.31,1.07,1.02,0.56,0.52,1.18,0.34,0.34,0.39,0.52,0.26,0.74,1.01,0.91,0.87,0.5,0.4,1.15,1.07,0.3,1.2,0.35,0.35,0.33,0.41,0.36,1.5,0.53,1,1.57,0.52,0.31,1.31,0.7,1.1,0.4,1.21,0.33,0.3,1.18,1.01,0.56,0.35,0.91,1.01,0.44,0.92,0.8,0.31,0.37,0.7,0.51,0.3,0.37,0.54,0.72,0.36,1.72,2.4,1.02,0.31,0.52,0.52,0.52,0.31,0.63,1.2,0.7,1.19,0.92,0.5,0.7,1.15,0.7,1.1,2.15,0.32,0.32,0.76,0.5,0.3,0.73,0.91,0.54,0.35,0.33,0.73,1.2,1.2,1.5,0.71,1.16,1.19,0.93,0.31,0.4,1.32,0.51,0.5,0.42,0.74,0.41,0.51,0.31,0.56,0.71,0.7,0.34,0.27,1.29,0.7,1.13,0.31,1.02,0.8,0.96,0.41,0.41,0.33,0.26,0.81,0.61,0.55,2.01,0.3,0.78,0.3,0.52,0.3,0.31,0.59,0.71,0.33,1.02,0.9,0.23,0.33,0.7,1.28,1.6,0.75,1,0.7,0.3,0.3,0.3,0.7,0.52,0.7,0.7,0.9,0.41,1.11,0.52,0.8,0.39,0.83,0.58,0.7,0.51,0.3,0.43,0.34,0.24,0.5,1,0.58,0.53,2.41,2.42,0.9,0.52,0.4,1.03,1.2,0.72,0.38,1.52,0.7,0.33,0.9,0.82,0.71,1.01,1,1.21,0.35,2.21,0.54,1.14,0.31,1,0.42,0.72,0.41,1.05,1,0.7,0.9,0.34,0.7,1.09,2.01,0.7,1.01,0.37,1.22,0.84,0.53,0.72,1.39,1,0.31,0.33,0.5,0.35,1.02,2.03,1.12,0.5,0.53,0.51,0.33,0.54,0.7,1.51,0.26,1.04,0.31,0.53,1.07,0.3,1.15,0.31,0.31,1.26,1.51,0.42,0.77,0.71,0.32,1.09,0.51,1.28,0.72,0.77,0.36,0.9,1.52,1.37,1.21,0.7,0.35,0.33,0.38,0.78,0.55,0.36,0.41,0.71,0.57,0.69,0.31,1.27,1.01,2.01,1.51,0.37,0.7,2.02,0.36,0.33,0.35,0.53,0.32,1.5,0.7,1.47,0.37,1.83,0.72,1.24,0.5,1.5,0.42,0.42,0.9,0.55,2.52,0.52,0.36,0.3,0.31,0.72,0.36,0.3,1.06,0.72,0.29,0.3,0.52,1.24,0.2,0.2,0.3,1.21,0.83,0.43,0.3,1,0.5,1.52,0.75,0.53,0.72,0.31,0.51,0.9,0.3,0.52,0.71,0.91,1.63,0.72,1.59,1.5,0.3,1.04,0.31,1.26,0.34,0.27,0.27,1.53,0.76,0.3,0.91,0.43,0.31,1.13,0.52,0.51],"y":[13703,1016,6720,6040,1051,924,1909,2188,15957,15144,1722,13771,4545,8711,3275,1713,10053,5000,3955,641,890,927,6393,4689,4770,1697,3390,1754,5580,743,1349,663,847,7273,421,1308,4177,4255,5498,4337,1161,1665,2789,854,5921,544,2129,7079,990,6533,571,2804,1767,1059,1055,1060,1932,5743,2035,1316,6288,6165,1412,8058,2368,4890,1113,1636,4745,1656,12846,3193,7549,681,1238,1063,878,4588,2386,1721,4498,1207,1150,984,938,713,7099,2585,625,1945,6115,1179,464,952,13963,3082,1607,876,13278,4478,2853,2164,2961,2519,5640,477,884,596,1103,4933,732,1094,1286,2199,942,1016,1243,6022,1790,1230,982,6022,3263,1605,877,3763,2330,906,4844,3736,7560,1802,1757,5294,854,1087,1710,957,622,872,607,1832,6033,1866,13355,1058,1660,641,5554,2092,4668,878,514,7341,3444,877,2744,669,15059,1758,1068,768,4385,9082,2939,3881,1418,4171,2196,819,4238,5435,8396,5851,2083,3619,16068,9598,2202,710,2273,684,6872,11722,498,5037,5437,1607,768,3472,2012,852,2058,1845,3201,1082,5989,4415,13320,3306,12012,647,2674,912,2618,899,5366,1857,802,684,454,3452,2685,2387,9287,478,667,878,4704,4303,9901,1901,1401,693,7792,6089,1757,14426,7452,1604,982,828,919,4925,891,768,5842,760,6383,3713,10518,4805,567,3599,561,884,2829,2854,5938,983,4010,12390,1356,603,789,4713,4153,2560,5535,698,7140,15968,11226,4692,5589,11730,7190,5142,825,4680,1793,5538,3773,2575,2333,917,2745,850,1920,796,1041,3512,11843,1334,711,5245,2395,724,4314,1880,2351,5000,3059,3170,5947,5096,1314,1692,2314,2562,9057,7422,624,3780,894,1261,3265,1017,4755,8648,1323,945,15825,771,1041,567,8124,2300,2913,3767,544,698,7602,3763,552,3053,1689,1892,3011,5433,709,3026,1806,2146,2079,1828,894,506,1069,612,2218,521,610,2954,605,926,675,7466,13387,605,1436,703,9972,2321,4608,918,476,631,824,7255,1555,475,7924,599,2578,1789,451,1689,612,1094,1079,982,4140,6191,514,11927,1627,2329,4805,2328,3454,776,1284,638,4082,1692,893,2463,8037,7745,911,14350,2024,8529,14154,3739,463,815,3205,11717,1979,1197,814,2023,12554,6368,676,2463,7351,2757,1859,854,1799,2090,1923,16256,650,789,1013,658,1193,917,8524,15309,2567,810,698,2965,6342,1554,1141,7476,1842,2516,10396,14625,4644,6022,12612,449,2822,8764,7231,4678,4679,2858,1270,1558,1441,1321,6773,840,4709,596,8192,444,4965,666,456,449,18114,862,13846,2723,899,1125,1187,435,521,645,421,4103,561,1015,9331,4126,12778,625,3733,9683,1792,626,2515,6295,3387,1928,544,17649,2057,1786,1134,1397,16343,5645,15197,13034,2811,17724,3335,3307,7256,8852,1305,421,1443,8498,1264,984,818,6486,1153,5717,10710,12992,828,611,956,962,8631,1605,3281,489,2947,4390,942,12483,1096,3123,2590,1815,13095,2066,4938,1344,12381,1753,957,5234,10094,1295,734,446,5564,1046,3730,3095,7096,2102,766,686,2093,16311,684,3062,2538,3539,18656,4064,2150,1197,921,1088,8936,500,1114,954,749,706,7756,7027,530,12100,11560,2613,16629,2558,2591,3192,1073,4119,496,841,11190,1607,9207,1125,1624,3787,7969,2718,12157,4497,2123,605,449,765,7072,2671,5623,459,1055,658,2161,1257,5257,1046,14236,5119,2725,12338,5100,968,8820,13377,4633,10963,1254,789,4416,3965,645,9471,18318,3455,8079,4497,1063,3084,11119,603,5759,436,1111,1781,15821,14543,505,5390,1113,1735,4032,3478,810,2085,6487,1081,4131,2362,4891,4463,8176,1858,8372,2356,8014,828,5889,477,489,9177,6058,2061,2362,4639,826,477,854,1303,547,2574,10761,3496,4899,1629,1229,4437,8491,382,6973,555,552,644,719,789,12787,1647,5929,8752,1429,1074,8106,1843,5868,687,8348,771,1097,3965,4102,1819,1063,3889,4719,1073,3345,3356,907,811,2329,1875,605,1033,1985,2376,741,7741,18374,7440,1818,1605,1330,1622,558,2817,5280,2100,9524,3400,1758,2586,5750,2037,5278,13622,461,720,2593,1683,605,3182,3924,1439,1254,564,2808,6019,6534,7291,2207,6301,4558,4297,698,666,5721,1708,1738,833,2728,683,1781,1046,1436,2930,3359,1211,799,3098,2382,5220,732,5131,2851,3674,703,1115,859,452,3923,1971,1698,17334,844,2826,655,1707,526,500,2494,2450,608,4284,3662,530,668,2703,6451,10064,2760,4312,1715,778,710,500,2905,1350,2872,956,4324,1061,4196,1625,3369,874,3495,2380,2965,1662,515,1218,440,432,1280,4155,1173,1813,13563,16198,4778,2010,552,13060,6666,2404,682,8868,2724,1114,4385,3514,3041,5067,6389,10009,706,16804,1866,5548,732,6098,810,4252,754,6936,6369,2192,4062,803,1990,6225,12423,2107,5713,1764,10622,3370,1952,3140,12744,4155,680,955,1282,552,11500,18310,10949,1231,1956,1656,557,1356,2777,8742,448,6692,816,1848,9681,912,5224,698,583,9032,8794,829,2591,3880,477,8057,1119,6595,2398,2723,726,2639,10623,7939,6549,3920,806,577,705,3056,1580,1053,719,3084,1788,2070,542,6559,5158,13109,14247,1056,1138,16861,780,668,644,1359,758,7266,2979,6108,586,10162,2674,5583,994,12014,847,945,4580,1402,15776,1330,1148,945,734,2340,537,422,7275,2805,721,684,1919,9738,367,367,742,5346,3774,1199,814,3629,1286,13001,3336,1607,2724,583,1928,4072,826,1197,3710,4026,9556,2168,10106,16048,506,4770,871,11323,607,586,500,9596,3050,540,4453,1422,680,4385,1235,1879],"text":["Price:  13703 $<br>Cut: Ideal","Price:  1016 $<br>Cut: Premium","Price:  6720 $<br>Cut: Premium","Price:  6040 $<br>Cut: Very Good","Price:  1051 $<br>Cut: Ideal","Price:  924 $<br>Cut: Ideal","Price:  1909 $<br>Cut: Good","Price:  2188 $<br>Cut: Very Good","Price:  15957 $<br>Cut: Very Good","Price:  15144 $<br>Cut: Ideal","Price:  1722 $<br>Cut: Very Good","Price:  13771 $<br>Cut: Premium","Price:  4545 $<br>Cut: Very Good","Price:  8711 $<br>Cut: Very Good","Price:  3275 $<br>Cut: Ideal","Price:  1713 $<br>Cut: Ideal","Price:  10053 $<br>Cut: Premium","Price:  5000 $<br>Cut: Very Good","Price:  3955 $<br>Cut: Ideal","Price:  641 $<br>Cut: Very Good","Price:  890 $<br>Cut: Very Good","Price:  927 $<br>Cut: Very Good","Price:  6393 $<br>Cut: Premium","Price:  4689 $<br>Cut: Premium","Price:  4770 $<br>Cut: Good","Price:  1697 $<br>Cut: Very Good","Price:  3390 $<br>Cut: Ideal","Price:  1754 $<br>Cut: Ideal","Price:  5580 $<br>Cut: Premium","Price:  743 $<br>Cut: Premium","Price:  1349 $<br>Cut: Very Good","Price:  663 $<br>Cut: Very Good","Price:  847 $<br>Cut: Premium","Price:  7273 $<br>Cut: Ideal","Price:  421 $<br>Cut: Very Good","Price:  1308 $<br>Cut: Premium","Price:  4177 $<br>Cut: Good","Price:  4255 $<br>Cut: Very Good","Price:  5498 $<br>Cut: Ideal","Price:  4337 $<br>Cut: Very Good","Price:  1161 $<br>Cut: Very Good","Price:  1665 $<br>Cut: Ideal","Price:  2789 $<br>Cut: Premium","Price:  854 $<br>Cut: Ideal","Price:  5921 $<br>Cut: Premium","Price:  544 $<br>Cut: Premium","Price:  2129 $<br>Cut: Very Good","Price:  7079 $<br>Cut: Ideal","Price:  990 $<br>Cut: Ideal","Price:  6533 $<br>Cut: Premium","Price:  571 $<br>Cut: Good","Price:  2804 $<br>Cut: Ideal","Price:  1767 $<br>Cut: Ideal","Price:  1059 $<br>Cut: Very Good","Price:  1055 $<br>Cut: Ideal","Price:  1060 $<br>Cut: Ideal","Price:  1932 $<br>Cut: Ideal","Price:  5743 $<br>Cut: Very Good","Price:  2035 $<br>Cut: Very Good","Price:  1316 $<br>Cut: Ideal","Price:  6288 $<br>Cut: Ideal","Price:  6165 $<br>Cut: Premium","Price:  1412 $<br>Cut: Ideal","Price:  8058 $<br>Cut: Very Good","Price:  2368 $<br>Cut: Ideal","Price:  4890 $<br>Cut: Premium","Price:  1113 $<br>Cut: Premium","Price:  1636 $<br>Cut: Ideal","Price:  4745 $<br>Cut: Premium","Price:  1656 $<br>Cut: Ideal","Price:  12846 $<br>Cut: Very Good","Price:  3193 $<br>Cut: Good","Price:  7549 $<br>Cut: Very Good","Price:  681 $<br>Cut: Premium","Price:  1238 $<br>Cut: Ideal","Price:  1063 $<br>Cut: Very Good","Price:  878 $<br>Cut: Premium","Price:  4588 $<br>Cut: Premium","Price:  2386 $<br>Cut: Premium","Price:  1721 $<br>Cut: Premium","Price:  4498 $<br>Cut: Very Good","Price:  1207 $<br>Cut: Ideal","Price:  1150 $<br>Cut: Ideal","Price:  984 $<br>Cut: Ideal","Price:  938 $<br>Cut: Good","Price:  713 $<br>Cut: Ideal","Price:  7099 $<br>Cut: Ideal","Price:  2585 $<br>Cut: Premium","Price:  625 $<br>Cut: Very Good","Price:  1945 $<br>Cut: Good","Price:  6115 $<br>Cut: Premium","Price:  1179 $<br>Cut: Ideal","Price:  464 $<br>Cut: Ideal","Price:  952 $<br>Cut: Good","Price:  13963 $<br>Cut: Very Good","Price:  3082 $<br>Cut: Premium","Price:  1607 $<br>Cut: Very Good","Price:  876 $<br>Cut: Ideal","Price:  13278 $<br>Cut: Fair","Price:  4478 $<br>Cut: Ideal","Price:  2853 $<br>Cut: Premium","Price:  2164 $<br>Cut: Fair","Price:  2961 $<br>Cut: Ideal","Price:  2519 $<br>Cut: Very Good","Price:  5640 $<br>Cut: Ideal","Price:  477 $<br>Cut: Ideal","Price:  884 $<br>Cut: Ideal","Price:  596 $<br>Cut: Premium","Price:  1103 $<br>Cut: Premium","Price:  4933 $<br>Cut: Premium","Price:  732 $<br>Cut: Premium","Price:  1094 $<br>Cut: Ideal","Price:  1286 $<br>Cut: Premium","Price:  2199 $<br>Cut: Premium","Price:  942 $<br>Cut: Premium","Price:  1016 $<br>Cut: Ideal","Price:  1243 $<br>Cut: Premium","Price:  6022 $<br>Cut: Premium","Price:  1790 $<br>Cut: Ideal","Price:  1230 $<br>Cut: Ideal","Price:  982 $<br>Cut: Ideal","Price:  6022 $<br>Cut: Good","Price:  3263 $<br>Cut: Ideal","Price:  1605 $<br>Cut: Ideal","Price:  877 $<br>Cut: Premium","Price:  3763 $<br>Cut: Ideal","Price:  2330 $<br>Cut: Fair","Price:  906 $<br>Cut: Very Good","Price:  4844 $<br>Cut: Good","Price:  3736 $<br>Cut: Good","Price:  7560 $<br>Cut: Ideal","Price:  1802 $<br>Cut: Fair","Price:  1757 $<br>Cut: Ideal","Price:  5294 $<br>Cut: Ideal","Price:  854 $<br>Cut: Premium","Price:  1087 $<br>Cut: Premium","Price:  1710 $<br>Cut: Very Good","Price:  957 $<br>Cut: Premium","Price:  622 $<br>Cut: Very Good","Price:  872 $<br>Cut: Premium","Price:  607 $<br>Cut: Ideal","Price:  1832 $<br>Cut: Ideal","Price:  6033 $<br>Cut: Premium","Price:  1866 $<br>Cut: Premium","Price:  13355 $<br>Cut: Ideal","Price:  1058 $<br>Cut: Very Good","Price:  1660 $<br>Cut: Ideal","Price:  641 $<br>Cut: Very Good","Price:  5554 $<br>Cut: Premium","Price:  2092 $<br>Cut: Fair","Price:  4668 $<br>Cut: Good","Price:  878 $<br>Cut: Very Good","Price:  514 $<br>Cut: Ideal","Price:  7341 $<br>Cut: Premium","Price:  3444 $<br>Cut: Premium","Price:  877 $<br>Cut: Ideal","Price:  2744 $<br>Cut: Very Good","Price:  669 $<br>Cut: Good","Price:  15059 $<br>Cut: Ideal","Price:  1758 $<br>Cut: Very Good","Price:  1068 $<br>Cut: Ideal","Price:  768 $<br>Cut: Ideal","Price:  4385 $<br>Cut: Premium","Price:  9082 $<br>Cut: Premium","Price:  2939 $<br>Cut: Ideal","Price:  3881 $<br>Cut: Very Good","Price:  1418 $<br>Cut: Ideal","Price:  4171 $<br>Cut: Good","Price:  2196 $<br>Cut: Very Good","Price:  819 $<br>Cut: Ideal","Price:  4238 $<br>Cut: Premium","Price:  5435 $<br>Cut: Very Good","Price:  8396 $<br>Cut: Ideal","Price:  5851 $<br>Cut: Premium","Price:  2083 $<br>Cut: Ideal","Price:  3619 $<br>Cut: Ideal","Price:  16068 $<br>Cut: Premium","Price:  9598 $<br>Cut: Ideal","Price:  2202 $<br>Cut: Premium","Price:  710 $<br>Cut: Premium","Price:  2273 $<br>Cut: Very Good","Price:  684 $<br>Cut: Very Good","Price:  6872 $<br>Cut: Very Good","Price:  11722 $<br>Cut: Very Good","Price:  498 $<br>Cut: Ideal","Price:  5037 $<br>Cut: Ideal","Price:  5437 $<br>Cut: Premium","Price:  1607 $<br>Cut: Ideal","Price:  768 $<br>Cut: Ideal","Price:  3472 $<br>Cut: Fair","Price:  2012 $<br>Cut: Ideal","Price:  852 $<br>Cut: Premium","Price:  2058 $<br>Cut: Very Good","Price:  1845 $<br>Cut: Good","Price:  3201 $<br>Cut: Ideal","Price:  1082 $<br>Cut: Ideal","Price:  5989 $<br>Cut: Good","Price:  4415 $<br>Cut: Very Good","Price:  13320 $<br>Cut: Good","Price:  3306 $<br>Cut: Ideal","Price:  12012 $<br>Cut: Very Good","Price:  647 $<br>Cut: Ideal","Price:  2674 $<br>Cut: Very Good","Price:  912 $<br>Cut: Premium","Price:  2618 $<br>Cut: Ideal","Price:  899 $<br>Cut: Ideal","Price:  5366 $<br>Cut: Premium","Price:  1857 $<br>Cut: Very Good","Price:  802 $<br>Cut: Ideal","Price:  684 $<br>Cut: Premium","Price:  454 $<br>Cut: Premium","Price:  3452 $<br>Cut: Very Good","Price:  2685 $<br>Cut: Good","Price:  2387 $<br>Cut: Premium","Price:  9287 $<br>Cut: Ideal","Price:  478 $<br>Cut: Very Good","Price:  667 $<br>Cut: Very Good","Price:  878 $<br>Cut: Very Good","Price:  4704 $<br>Cut: Fair","Price:  4303 $<br>Cut: Very Good","Price:  9901 $<br>Cut: Premium","Price:  1901 $<br>Cut: Ideal","Price:  1401 $<br>Cut: Fair","Price:  693 $<br>Cut: Very Good","Price:  7792 $<br>Cut: Ideal","Price:  6089 $<br>Cut: Ideal","Price:  1757 $<br>Cut: Very Good","Price:  14426 $<br>Cut: Good","Price:  7452 $<br>Cut: Premium","Price:  1604 $<br>Cut: Very Good","Price:  982 $<br>Cut: Very Good","Price:  828 $<br>Cut: Premium","Price:  919 $<br>Cut: Ideal","Price:  4925 $<br>Cut: Ideal","Price:  891 $<br>Cut: Ideal","Price:  768 $<br>Cut: Ideal","Price:  5842 $<br>Cut: Ideal","Price:  760 $<br>Cut: Very Good","Price:  6383 $<br>Cut: Premium","Price:  3713 $<br>Cut: Premium","Price:  10518 $<br>Cut: Very Good","Price:  4805 $<br>Cut: Premium","Price:  567 $<br>Cut: Good","Price:  3599 $<br>Cut: Ideal","Price:  561 $<br>Cut: Very Good","Price:  884 $<br>Cut: Ideal","Price:  2829 $<br>Cut: Ideal","Price:  2854 $<br>Cut: Very Good","Price:  5938 $<br>Cut: Very Good","Price:  983 $<br>Cut: Ideal","Price:  4010 $<br>Cut: Very Good","Price:  12390 $<br>Cut: Ideal","Price:  1356 $<br>Cut: Ideal","Price:  603 $<br>Cut: Ideal","Price:  789 $<br>Cut: Ideal","Price:  4713 $<br>Cut: Ideal","Price:  4153 $<br>Cut: Premium","Price:  2560 $<br>Cut: Premium","Price:  5535 $<br>Cut: Good","Price:  698 $<br>Cut: Ideal","Price:  7140 $<br>Cut: Premium","Price:  15968 $<br>Cut: Ideal","Price:  11226 $<br>Cut: Ideal","Price:  4692 $<br>Cut: Premium","Price:  5589 $<br>Cut: Ideal","Price:  11730 $<br>Cut: Ideal","Price:  7190 $<br>Cut: Ideal","Price:  5142 $<br>Cut: Very Good","Price:  825 $<br>Cut: Very Good","Price:  4680 $<br>Cut: Ideal","Price:  1793 $<br>Cut: Premium","Price:  5538 $<br>Cut: Very Good","Price:  3773 $<br>Cut: Good","Price:  2575 $<br>Cut: Fair","Price:  2333 $<br>Cut: Good","Price:  917 $<br>Cut: Ideal","Price:  2745 $<br>Cut: Ideal","Price:  850 $<br>Cut: Ideal","Price:  1920 $<br>Cut: Premium","Price:  796 $<br>Cut: Ideal","Price:  1041 $<br>Cut: Ideal","Price:  3512 $<br>Cut: Very Good","Price:  11843 $<br>Cut: Ideal","Price:  1334 $<br>Cut: Ideal","Price:  711 $<br>Cut: Ideal","Price:  5245 $<br>Cut: Very Good","Price:  2395 $<br>Cut: Very Good","Price:  724 $<br>Cut: Good","Price:  4314 $<br>Cut: Ideal","Price:  1880 $<br>Cut: Ideal","Price:  2351 $<br>Cut: Ideal","Price:  5000 $<br>Cut: Premium","Price:  3059 $<br>Cut: Very Good","Price:  3170 $<br>Cut: Ideal","Price:  5947 $<br>Cut: Premium","Price:  5096 $<br>Cut: Ideal","Price:  1314 $<br>Cut: Ideal","Price:  1692 $<br>Cut: Ideal","Price:  2314 $<br>Cut: Premium","Price:  2562 $<br>Cut: Ideal","Price:  9057 $<br>Cut: Ideal","Price:  7422 $<br>Cut: Premium","Price:  624 $<br>Cut: Premium","Price:  3780 $<br>Cut: Premium","Price:  894 $<br>Cut: Premium","Price:  1261 $<br>Cut: Very Good","Price:  3265 $<br>Cut: Very Good","Price:  1017 $<br>Cut: Ideal","Price:  4755 $<br>Cut: Premium","Price:  8648 $<br>Cut: Ideal","Price:  1323 $<br>Cut: Ideal","Price:  945 $<br>Cut: Ideal","Price:  15825 $<br>Cut: Very Good","Price:  771 $<br>Cut: Ideal","Price:  1041 $<br>Cut: Premium","Price:  567 $<br>Cut: Ideal","Price:  8124 $<br>Cut: Premium","Price:  2300 $<br>Cut: Ideal","Price:  2913 $<br>Cut: Ideal","Price:  3767 $<br>Cut: Premium","Price:  544 $<br>Cut: Premium","Price:  698 $<br>Cut: Ideal","Price:  7602 $<br>Cut: Ideal","Price:  3763 $<br>Cut: Premium","Price:  552 $<br>Cut: Ideal","Price:  3053 $<br>Cut: Ideal","Price:  1689 $<br>Cut: Ideal","Price:  1892 $<br>Cut: Very Good","Price:  3011 $<br>Cut: Ideal","Price:  5433 $<br>Cut: Very Good","Price:  709 $<br>Cut: Ideal","Price:  3026 $<br>Cut: Ideal","Price:  1806 $<br>Cut: Premium","Price:  2146 $<br>Cut: Ideal","Price:  2079 $<br>Cut: Ideal","Price:  1828 $<br>Cut: Fair","Price:  894 $<br>Cut: Very Good","Price:  506 $<br>Cut: Very Good","Price:  1069 $<br>Cut: Premium","Price:  612 $<br>Cut: Good","Price:  2218 $<br>Cut: Very Good","Price:  521 $<br>Cut: Premium","Price:  610 $<br>Cut: Ideal","Price:  2954 $<br>Cut: Ideal","Price:  605 $<br>Cut: Good","Price:  926 $<br>Cut: Very Good","Price:  675 $<br>Cut: Premium","Price:  7466 $<br>Cut: Premium","Price:  13387 $<br>Cut: Premium","Price:  605 $<br>Cut: Premium","Price:  1436 $<br>Cut: Very Good","Price:  703 $<br>Cut: Ideal","Price:  9972 $<br>Cut: Ideal","Price:  2321 $<br>Cut: Premium","Price:  4608 $<br>Cut: Good","Price:  918 $<br>Cut: Premium","Price:  476 $<br>Cut: Good","Price:  631 $<br>Cut: Very Good","Price:  824 $<br>Cut: Ideal","Price:  7255 $<br>Cut: Ideal","Price:  1555 $<br>Cut: Very Good","Price:  475 $<br>Cut: Ideal","Price:  7924 $<br>Cut: Premium","Price:  599 $<br>Cut: Ideal","Price:  2578 $<br>Cut: Ideal","Price:  1789 $<br>Cut: Ideal","Price:  451 $<br>Cut: Ideal","Price:  1689 $<br>Cut: Premium","Price:  612 $<br>Cut: Very Good","Price:  1094 $<br>Cut: Very Good","Price:  1079 $<br>Cut: Premium","Price:  982 $<br>Cut: Very Good","Price:  4140 $<br>Cut: Fair","Price:  6191 $<br>Cut: Ideal","Price:  514 $<br>Cut: Ideal","Price:  11927 $<br>Cut: Ideal","Price:  1627 $<br>Cut: Premium","Price:  2329 $<br>Cut: Premium","Price:  4805 $<br>Cut: Premium","Price:  2328 $<br>Cut: Very Good","Price:  3454 $<br>Cut: Ideal","Price:  776 $<br>Cut: Premium","Price:  1284 $<br>Cut: Ideal","Price:  638 $<br>Cut: Very Good","Price:  4082 $<br>Cut: Premium","Price:  1692 $<br>Cut: Very Good","Price:  893 $<br>Cut: Ideal","Price:  2463 $<br>Cut: Premium","Price:  8037 $<br>Cut: Fair","Price:  7745 $<br>Cut: Premium","Price:  911 $<br>Cut: Ideal","Price:  14350 $<br>Cut: Premium","Price:  2024 $<br>Cut: Ideal","Price:  8529 $<br>Cut: Fair","Price:  14154 $<br>Cut: Ideal","Price:  3739 $<br>Cut: Very Good","Price:  463 $<br>Cut: Ideal","Price:  815 $<br>Cut: Ideal","Price:  3205 $<br>Cut: Fair","Price:  11717 $<br>Cut: Very Good","Price:  1979 $<br>Cut: Ideal","Price:  1197 $<br>Cut: Very Good","Price:  814 $<br>Cut: Ideal","Price:  2023 $<br>Cut: Ideal","Price:  12554 $<br>Cut: Premium","Price:  6368 $<br>Cut: Premium","Price:  676 $<br>Cut: Ideal","Price:  2463 $<br>Cut: Very Good","Price:  7351 $<br>Cut: Premium","Price:  2757 $<br>Cut: Ideal","Price:  1859 $<br>Cut: Ideal","Price:  854 $<br>Cut: Premium","Price:  1799 $<br>Cut: Ideal","Price:  2090 $<br>Cut: Ideal","Price:  1923 $<br>Cut: Ideal","Price:  16256 $<br>Cut: Ideal","Price:  650 $<br>Cut: Ideal","Price:  789 $<br>Cut: Ideal","Price:  1013 $<br>Cut: Very Good","Price:  658 $<br>Cut: Premium","Price:  1193 $<br>Cut: Ideal","Price:  917 $<br>Cut: Ideal","Price:  8524 $<br>Cut: Premium","Price:  15309 $<br>Cut: Very Good","Price:  2567 $<br>Cut: Ideal","Price:  810 $<br>Cut: Ideal","Price:  698 $<br>Cut: Premium","Price:  2965 $<br>Cut: Ideal","Price:  6342 $<br>Cut: Premium","Price:  1554 $<br>Cut: Very Good","Price:  1141 $<br>Cut: Fair","Price:  7476 $<br>Cut: Fair","Price:  1842 $<br>Cut: Ideal","Price:  2516 $<br>Cut: Very Good","Price:  10396 $<br>Cut: Ideal","Price:  14625 $<br>Cut: Very Good","Price:  4644 $<br>Cut: Very Good","Price:  6022 $<br>Cut: Very Good","Price:  12612 $<br>Cut: Very Good","Price:  449 $<br>Cut: Very Good","Price:  2822 $<br>Cut: Ideal","Price:  8764 $<br>Cut: Ideal","Price:  7231 $<br>Cut: Ideal","Price:  4678 $<br>Cut: Very Good","Price:  4679 $<br>Cut: Good","Price:  2858 $<br>Cut: Fair","Price:  1270 $<br>Cut: Premium","Price:  1558 $<br>Cut: Premium","Price:  1441 $<br>Cut: Ideal","Price:  1321 $<br>Cut: Very Good","Price:  6773 $<br>Cut: Premium","Price:  840 $<br>Cut: Fair","Price:  4709 $<br>Cut: Very Good","Price:  596 $<br>Cut: Very Good","Price:  8192 $<br>Cut: Ideal","Price:  444 $<br>Cut: Premium","Price:  4965 $<br>Cut: Good","Price:  666 $<br>Cut: Ideal","Price:  456 $<br>Cut: Ideal","Price:  449 $<br>Cut: Very Good","Price:  18114 $<br>Cut: Very Good","Price:  862 $<br>Cut: Ideal","Price:  13846 $<br>Cut: Good","Price:  2723 $<br>Cut: Premium","Price:  899 $<br>Cut: Ideal","Price:  1125 $<br>Cut: Ideal","Price:  1187 $<br>Cut: Ideal","Price:  435 $<br>Cut: Premium","Price:  521 $<br>Cut: Premium","Price:  645 $<br>Cut: Very Good","Price:  421 $<br>Cut: Premium","Price:  4103 $<br>Cut: Ideal","Price:  561 $<br>Cut: Good","Price:  1015 $<br>Cut: Premium","Price:  9331 $<br>Cut: Very Good","Price:  4126 $<br>Cut: Premium","Price:  12778 $<br>Cut: Ideal","Price:  625 $<br>Cut: Ideal","Price:  3733 $<br>Cut: Premium","Price:  9683 $<br>Cut: Very Good","Price:  1792 $<br>Cut: Ideal","Price:  626 $<br>Cut: Premium","Price:  2515 $<br>Cut: Ideal","Price:  6295 $<br>Cut: Ideal","Price:  3387 $<br>Cut: Very Good","Price:  1928 $<br>Cut: Premium","Price:  544 $<br>Cut: Very Good","Price:  17649 $<br>Cut: Ideal","Price:  2057 $<br>Cut: Ideal","Price:  1786 $<br>Cut: Premium","Price:  1134 $<br>Cut: Fair","Price:  1397 $<br>Cut: Ideal","Price:  16343 $<br>Cut: Ideal","Price:  5645 $<br>Cut: Good","Price:  15197 $<br>Cut: Ideal","Price:  13034 $<br>Cut: Premium","Price:  2811 $<br>Cut: Fair","Price:  17724 $<br>Cut: Very Good","Price:  3335 $<br>Cut: Good","Price:  3307 $<br>Cut: Very Good","Price:  7256 $<br>Cut: Premium","Price:  8852 $<br>Cut: Ideal","Price:  1305 $<br>Cut: Ideal","Price:  421 $<br>Cut: Ideal","Price:  1443 $<br>Cut: Ideal","Price:  8498 $<br>Cut: Ideal","Price:  1264 $<br>Cut: Ideal","Price:  984 $<br>Cut: Ideal","Price:  818 $<br>Cut: Premium","Price:  6486 $<br>Cut: Ideal","Price:  1153 $<br>Cut: Premium","Price:  5717 $<br>Cut: Ideal","Price:  10710 $<br>Cut: Very Good","Price:  12992 $<br>Cut: Premium","Price:  828 $<br>Cut: Ideal","Price:  611 $<br>Cut: Good","Price:  956 $<br>Cut: Ideal","Price:  962 $<br>Cut: Ideal","Price:  8631 $<br>Cut: Premium","Price:  1605 $<br>Cut: Premium","Price:  3281 $<br>Cut: Ideal","Price:  489 $<br>Cut: Ideal","Price:  2947 $<br>Cut: Premium","Price:  4390 $<br>Cut: Premium","Price:  942 $<br>Cut: Ideal","Price:  12483 $<br>Cut: Very Good","Price:  1096 $<br>Cut: Ideal","Price:  3123 $<br>Cut: Ideal","Price:  2590 $<br>Cut: Ideal","Price:  1815 $<br>Cut: Ideal","Price:  13095 $<br>Cut: Very Good","Price:  2066 $<br>Cut: Ideal","Price:  4938 $<br>Cut: Very Good","Price:  1344 $<br>Cut: Premium","Price:  12381 $<br>Cut: Very Good","Price:  1753 $<br>Cut: Ideal","Price:  957 $<br>Cut: Good","Price:  5234 $<br>Cut: Very Good","Price:  10094 $<br>Cut: Very Good","Price:  1295 $<br>Cut: Ideal","Price:  734 $<br>Cut: Ideal","Price:  446 $<br>Cut: Very Good","Price:  5564 $<br>Cut: Ideal","Price:  1046 $<br>Cut: Very Good","Price:  3730 $<br>Cut: Good","Price:  3095 $<br>Cut: Ideal","Price:  7096 $<br>Cut: Premium","Price:  2102 $<br>Cut: Fair","Price:  766 $<br>Cut: Very Good","Price:  686 $<br>Cut: Very Good","Price:  2093 $<br>Cut: Very Good","Price:  16311 $<br>Cut: Ideal","Price:  684 $<br>Cut: Premium","Price:  3062 $<br>Cut: Premium","Price:  2538 $<br>Cut: Very Good","Price:  3539 $<br>Cut: Premium","Price:  18656 $<br>Cut: Premium","Price:  4064 $<br>Cut: Ideal","Price:  2150 $<br>Cut: Premium","Price:  1197 $<br>Cut: Very Good","Price:  921 $<br>Cut: Very Good","Price:  1088 $<br>Cut: Ideal","Price:  8936 $<br>Cut: Very Good","Price:  500 $<br>Cut: Good","Price:  1114 $<br>Cut: Ideal","Price:  954 $<br>Cut: Premium","Price:  749 $<br>Cut: Good","Price:  706 $<br>Cut: Premium","Price:  7756 $<br>Cut: Ideal","Price:  7027 $<br>Cut: Ideal","Price:  530 $<br>Cut: Very Good","Price:  12100 $<br>Cut: Very Good","Price:  11560 $<br>Cut: Very Good","Price:  2613 $<br>Cut: Ideal","Price:  16629 $<br>Cut: Premium","Price:  2558 $<br>Cut: Very Good","Price:  2591 $<br>Cut: Ideal","Price:  3192 $<br>Cut: Fair","Price:  1073 $<br>Cut: Premium","Price:  4119 $<br>Cut: Very Good","Price:  496 $<br>Cut: Ideal","Price:  841 $<br>Cut: Very Good","Price:  11190 $<br>Cut: Premium","Price:  1607 $<br>Cut: Ideal","Price:  9207 $<br>Cut: Premium","Price:  1125 $<br>Cut: Ideal","Price:  1624 $<br>Cut: Very Good","Price:  3787 $<br>Cut: Good","Price:  7969 $<br>Cut: Very Good","Price:  2718 $<br>Cut: Ideal","Price:  12157 $<br>Cut: Ideal","Price:  4497 $<br>Cut: Ideal","Price:  2123 $<br>Cut: Ideal","Price:  605 $<br>Cut: Ideal","Price:  449 $<br>Cut: Premium","Price:  765 $<br>Cut: Premium","Price:  7072 $<br>Cut: Very Good","Price:  2671 $<br>Cut: Very Good","Price:  5623 $<br>Cut: Very Good","Price:  459 $<br>Cut: Ideal","Price:  1055 $<br>Cut: Premium","Price:  658 $<br>Cut: Very Good","Price:  2161 $<br>Cut: Very Good","Price:  1257 $<br>Cut: Very Good","Price:  5257 $<br>Cut: Very Good","Price:  1046 $<br>Cut: Ideal","Price:  14236 $<br>Cut: Very Good","Price:  5119 $<br>Cut: Very Good","Price:  2725 $<br>Cut: Ideal","Price:  12338 $<br>Cut: Premium","Price:  5100 $<br>Cut: Premium","Price:  968 $<br>Cut: Premium","Price:  8820 $<br>Cut: Good","Price:  13377 $<br>Cut: Ideal","Price:  4633 $<br>Cut: Premium","Price:  10963 $<br>Cut: Very Good","Price:  1254 $<br>Cut: Good","Price:  789 $<br>Cut: Ideal","Price:  4416 $<br>Cut: Premium","Price:  3965 $<br>Cut: Very Good","Price:  645 $<br>Cut: Ideal","Price:  9471 $<br>Cut: Premium","Price:  18318 $<br>Cut: Premium","Price:  3455 $<br>Cut: Very Good","Price:  8079 $<br>Cut: Very Good","Price:  4497 $<br>Cut: Ideal","Price:  1063 $<br>Cut: Ideal","Price:  3084 $<br>Cut: Fair","Price:  11119 $<br>Cut: Ideal","Price:  603 $<br>Cut: Ideal","Price:  5759 $<br>Cut: Very Good","Price:  436 $<br>Cut: Ideal","Price:  1111 $<br>Cut: Ideal","Price:  1781 $<br>Cut: Very Good","Price:  15821 $<br>Cut: Ideal","Price:  14543 $<br>Cut: Premium","Price:  505 $<br>Cut: Ideal","Price:  5390 $<br>Cut: Ideal","Price:  1113 $<br>Cut: Ideal","Price:  1735 $<br>Cut: Premium","Price:  4032 $<br>Cut: Premium","Price:  3478 $<br>Cut: Ideal","Price:  810 $<br>Cut: Ideal","Price:  2085 $<br>Cut: Ideal","Price:  6487 $<br>Cut: Very Good","Price:  1081 $<br>Cut: Very Good","Price:  4131 $<br>Cut: Good","Price:  2362 $<br>Cut: Very Good","Price:  4891 $<br>Cut: Ideal","Price:  4463 $<br>Cut: Very Good","Price:  8176 $<br>Cut: Ideal","Price:  1858 $<br>Cut: Premium","Price:  8372 $<br>Cut: Very Good","Price:  2356 $<br>Cut: Ideal","Price:  8014 $<br>Cut: Ideal","Price:  828 $<br>Cut: Premium","Price:  5889 $<br>Cut: Premium","Price:  477 $<br>Cut: Ideal","Price:  489 $<br>Cut: Very Good","Price:  9177 $<br>Cut: Ideal","Price:  6058 $<br>Cut: Premium","Price:  2061 $<br>Cut: Ideal","Price:  2362 $<br>Cut: Ideal","Price:  4639 $<br>Cut: Premium","Price:  826 $<br>Cut: Ideal","Price:  477 $<br>Cut: Very Good","Price:  854 $<br>Cut: Premium","Price:  1303 $<br>Cut: Premium","Price:  547 $<br>Cut: Very Good","Price:  2574 $<br>Cut: Very Good","Price:  10761 $<br>Cut: Ideal","Price:  3496 $<br>Cut: Very Good","Price:  4899 $<br>Cut: Ideal","Price:  1629 $<br>Cut: Ideal","Price:  1229 $<br>Cut: Ideal","Price:  4437 $<br>Cut: Good","Price:  8491 $<br>Cut: Ideal","Price:  382 $<br>Cut: Ideal","Price:  6973 $<br>Cut: Very Good","Price:  555 $<br>Cut: Ideal","Price:  552 $<br>Cut: Good","Price:  644 $<br>Cut: Ideal","Price:  719 $<br>Cut: Very Good","Price:  789 $<br>Cut: Premium","Price:  12787 $<br>Cut: Premium","Price:  1647 $<br>Cut: Very Good","Price:  5929 $<br>Cut: Very Good","Price:  8752 $<br>Cut: Premium","Price:  1429 $<br>Cut: Ideal","Price:  1074 $<br>Cut: Ideal","Price:  8106 $<br>Cut: Premium","Price:  1843 $<br>Cut: Good","Price:  5868 $<br>Cut: Ideal","Price:  687 $<br>Cut: Good","Price:  8348 $<br>Cut: Ideal","Price:  771 $<br>Cut: Ideal","Price:  1097 $<br>Cut: Premium","Price:  3965 $<br>Cut: Premium","Price:  4102 $<br>Cut: Fair","Price:  1819 $<br>Cut: Premium","Price:  1063 $<br>Cut: Ideal","Price:  3889 $<br>Cut: Premium","Price:  4719 $<br>Cut: Very Good","Price:  1073 $<br>Cut: Ideal","Price:  3345 $<br>Cut: Very Good","Price:  3356 $<br>Cut: Premium","Price:  907 $<br>Cut: Ideal","Price:  811 $<br>Cut: Premium","Price:  2329 $<br>Cut: Premium","Price:  1875 $<br>Cut: Very Good","Price:  605 $<br>Cut: Very Good","Price:  1033 $<br>Cut: Ideal","Price:  1985 $<br>Cut: Ideal","Price:  2376 $<br>Cut: Ideal","Price:  741 $<br>Cut: Very Good","Price:  7741 $<br>Cut: Good","Price:  18374 $<br>Cut: Ideal","Price:  7440 $<br>Cut: Ideal","Price:  1818 $<br>Cut: Ideal","Price:  1605 $<br>Cut: Very Good","Price:  1330 $<br>Cut: Ideal","Price:  1622 $<br>Cut: Premium","Price:  558 $<br>Cut: Premium","Price:  2817 $<br>Cut: Ideal","Price:  5280 $<br>Cut: Very Good","Price:  2100 $<br>Cut: Premium","Price:  9524 $<br>Cut: Ideal","Price:  3400 $<br>Cut: Ideal","Price:  1758 $<br>Cut: Premium","Price:  2586 $<br>Cut: Premium","Price:  5750 $<br>Cut: Very Good","Price:  2037 $<br>Cut: Premium","Price:  5278 $<br>Cut: Ideal","Price:  13622 $<br>Cut: Very Good","Price:  461 $<br>Cut: Good","Price:  720 $<br>Cut: Ideal","Price:  2593 $<br>Cut: Very Good","Price:  1683 $<br>Cut: Premium","Price:  605 $<br>Cut: Very Good","Price:  3182 $<br>Cut: Very Good","Price:  3924 $<br>Cut: Good","Price:  1439 $<br>Cut: Premium","Price:  1254 $<br>Cut: Ideal","Price:  564 $<br>Cut: Ideal","Price:  2808 $<br>Cut: Very Good","Price:  6019 $<br>Cut: Very Good","Price:  6534 $<br>Cut: Very Good","Price:  7291 $<br>Cut: Good","Price:  2207 $<br>Cut: Good","Price:  6301 $<br>Cut: Very Good","Price:  4558 $<br>Cut: Premium","Price:  4297 $<br>Cut: Premium","Price:  698 $<br>Cut: Very Good","Price:  666 $<br>Cut: Good","Price:  5721 $<br>Cut: Ideal","Price:  1708 $<br>Cut: Ideal","Price:  1738 $<br>Cut: Very Good","Price:  833 $<br>Cut: Ideal","Price:  2728 $<br>Cut: Very Good","Price:  683 $<br>Cut: Ideal","Price:  1781 $<br>Cut: Ideal","Price:  1046 $<br>Cut: Ideal","Price:  1436 $<br>Cut: Very Good","Price:  2930 $<br>Cut: Very Good","Price:  3359 $<br>Cut: Ideal","Price:  1211 $<br>Cut: Ideal","Price:  799 $<br>Cut: Ideal","Price:  3098 $<br>Cut: Good","Price:  2382 $<br>Cut: Very Good","Price:  5220 $<br>Cut: Very Good","Price:  732 $<br>Cut: Ideal","Price:  5131 $<br>Cut: Very Good","Price:  2851 $<br>Cut: Very Good","Price:  3674 $<br>Cut: Fair","Price:  703 $<br>Cut: Ideal","Price:  1115 $<br>Cut: Ideal","Price:  859 $<br>Cut: Very Good","Price:  452 $<br>Cut: Premium","Price:  3923 $<br>Cut: Ideal","Price:  1971 $<br>Cut: Good","Price:  1698 $<br>Cut: Premium","Price:  17334 $<br>Cut: Premium","Price:  844 $<br>Cut: Ideal","Price:  2826 $<br>Cut: Premium","Price:  655 $<br>Cut: Ideal","Price:  1707 $<br>Cut: Ideal","Price:  526 $<br>Cut: Very Good","Price:  500 $<br>Cut: Ideal","Price:  2494 $<br>Cut: Very Good","Price:  2450 $<br>Cut: Ideal","Price:  608 $<br>Cut: Premium","Price:  4284 $<br>Cut: Premium","Price:  3662 $<br>Cut: Premium","Price:  530 $<br>Cut: Very Good","Price:  668 $<br>Cut: Premium","Price:  2703 $<br>Cut: Ideal","Price:  6451 $<br>Cut: Ideal","Price:  10064 $<br>Cut: Premium","Price:  2760 $<br>Cut: Premium","Price:  4312 $<br>Cut: Good","Price:  1715 $<br>Cut: Very Good","Price:  778 $<br>Cut: Ideal","Price:  710 $<br>Cut: Very Good","Price:  500 $<br>Cut: Premium","Price:  2905 $<br>Cut: Very Good","Price:  1350 $<br>Cut: Good","Price:  2872 $<br>Cut: Ideal","Price:  956 $<br>Cut: Fair","Price:  4324 $<br>Cut: Very Good","Price:  1061 $<br>Cut: Ideal","Price:  4196 $<br>Cut: Premium","Price:  1625 $<br>Cut: Ideal","Price:  3369 $<br>Cut: Very Good","Price:  874 $<br>Cut: Ideal","Price:  3495 $<br>Cut: Premium","Price:  2380 $<br>Cut: Ideal","Price:  2965 $<br>Cut: Ideal","Price:  1662 $<br>Cut: Good","Price:  515 $<br>Cut: Good","Price:  1218 $<br>Cut: Ideal","Price:  440 $<br>Cut: Ideal","Price:  432 $<br>Cut: Premium","Price:  1280 $<br>Cut: Fair","Price:  4155 $<br>Cut: Premium","Price:  1173 $<br>Cut: Very Good","Price:  1813 $<br>Cut: Premium","Price:  13563 $<br>Cut: Premium","Price:  16198 $<br>Cut: Premium","Price:  4778 $<br>Cut: Good","Price:  2010 $<br>Cut: Ideal","Price:  552 $<br>Cut: Ideal","Price:  13060 $<br>Cut: Ideal","Price:  6666 $<br>Cut: Very Good","Price:  2404 $<br>Cut: Very Good","Price:  682 $<br>Cut: Premium","Price:  8868 $<br>Cut: Very Good","Price:  2724 $<br>Cut: Very Good","Price:  1114 $<br>Cut: Premium","Price:  4385 $<br>Cut: Premium","Price:  3514 $<br>Cut: Ideal","Price:  3041 $<br>Cut: Ideal","Price:  5067 $<br>Cut: Very Good","Price:  6389 $<br>Cut: Good","Price:  10009 $<br>Cut: Very Good","Price:  706 $<br>Cut: Ideal","Price:  16804 $<br>Cut: Premium","Price:  1866 $<br>Cut: Ideal","Price:  5548 $<br>Cut: Ideal","Price:  732 $<br>Cut: Ideal","Price:  6098 $<br>Cut: Good","Price:  810 $<br>Cut: Ideal","Price:  4252 $<br>Cut: Ideal","Price:  754 $<br>Cut: Very Good","Price:  6936 $<br>Cut: Ideal","Price:  6369 $<br>Cut: Good","Price:  2192 $<br>Cut: Good","Price:  4062 $<br>Cut: Premium","Price:  803 $<br>Cut: Premium","Price:  1990 $<br>Cut: Very Good","Price:  6225 $<br>Cut: Ideal","Price:  12423 $<br>Cut: Good","Price:  2107 $<br>Cut: Very Good","Price:  5713 $<br>Cut: Premium","Price:  1764 $<br>Cut: Ideal","Price:  10622 $<br>Cut: Ideal","Price:  3370 $<br>Cut: Good","Price:  1952 $<br>Cut: Ideal","Price:  3140 $<br>Cut: Good","Price:  12744 $<br>Cut: Ideal","Price:  4155 $<br>Cut: Premium","Price:  680 $<br>Cut: Ideal","Price:  955 $<br>Cut: Ideal","Price:  1282 $<br>Cut: Ideal","Price:  552 $<br>Cut: Ideal","Price:  11500 $<br>Cut: Ideal","Price:  18310 $<br>Cut: Premium","Price:  10949 $<br>Cut: Ideal","Price:  1231 $<br>Cut: Very Good","Price:  1956 $<br>Cut: Ideal","Price:  1656 $<br>Cut: Ideal","Price:  557 $<br>Cut: Ideal","Price:  1356 $<br>Cut: Very Good","Price:  2777 $<br>Cut: Premium","Price:  8742 $<br>Cut: Good","Price:  448 $<br>Cut: Ideal","Price:  6692 $<br>Cut: Ideal","Price:  816 $<br>Cut: Very Good","Price:  1848 $<br>Cut: Ideal","Price:  9681 $<br>Cut: Very Good","Price:  912 $<br>Cut: Ideal","Price:  5224 $<br>Cut: Ideal","Price:  698 $<br>Cut: Premium","Price:  583 $<br>Cut: Ideal","Price:  9032 $<br>Cut: Ideal","Price:  8794 $<br>Cut: Premium","Price:  829 $<br>Cut: Very Good","Price:  2591 $<br>Cut: Very Good","Price:  3880 $<br>Cut: Ideal","Price:  477 $<br>Cut: Premium","Price:  8057 $<br>Cut: Premium","Price:  1119 $<br>Cut: Good","Price:  6595 $<br>Cut: Premium","Price:  2398 $<br>Cut: Ideal","Price:  2723 $<br>Cut: Premium","Price:  726 $<br>Cut: Ideal","Price:  2639 $<br>Cut: Fair","Price:  10623 $<br>Cut: Premium","Price:  7939 $<br>Cut: Very Good","Price:  6549 $<br>Cut: Very Good","Price:  3920 $<br>Cut: Very Good","Price:  806 $<br>Cut: Ideal","Price:  577 $<br>Cut: Premium","Price:  705 $<br>Cut: Very Good","Price:  3056 $<br>Cut: Ideal","Price:  1580 $<br>Cut: Very Good","Price:  1053 $<br>Cut: Very Good","Price:  719 $<br>Cut: Ideal","Price:  3084 $<br>Cut: Very Good","Price:  1788 $<br>Cut: Fair","Price:  2070 $<br>Cut: Fair","Price:  542 $<br>Cut: Very Good","Price:  6559 $<br>Cut: Very Good","Price:  5158 $<br>Cut: Ideal","Price:  13109 $<br>Cut: Very Good","Price:  14247 $<br>Cut: Premium","Price:  1056 $<br>Cut: Ideal","Price:  1138 $<br>Cut: Premium","Price:  16861 $<br>Cut: Premium","Price:  780 $<br>Cut: Very Good","Price:  668 $<br>Cut: Premium","Price:  644 $<br>Cut: Premium","Price:  1359 $<br>Cut: Ideal","Price:  758 $<br>Cut: Very Good","Price:  7266 $<br>Cut: Premium","Price:  2979 $<br>Cut: Ideal","Price:  6108 $<br>Cut: Fair","Price:  586 $<br>Cut: Ideal","Price:  10162 $<br>Cut: Premium","Price:  2674 $<br>Cut: Ideal","Price:  5583 $<br>Cut: Premium","Price:  994 $<br>Cut: Fair","Price:  12014 $<br>Cut: Very Good","Price:  847 $<br>Cut: Ideal","Price:  945 $<br>Cut: Ideal","Price:  4580 $<br>Cut: Very Good","Price:  1402 $<br>Cut: Ideal","Price:  15776 $<br>Cut: Fair","Price:  1330 $<br>Cut: Very Good","Price:  1148 $<br>Cut: Ideal","Price:  945 $<br>Cut: Premium","Price:  734 $<br>Cut: Ideal","Price:  2340 $<br>Cut: Ideal","Price:  537 $<br>Cut: Very Good","Price:  422 $<br>Cut: Ideal","Price:  7275 $<br>Cut: Ideal","Price:  2805 $<br>Cut: Ideal","Price:  721 $<br>Cut: Ideal","Price:  684 $<br>Cut: Very Good","Price:  1919 $<br>Cut: Ideal","Price:  9738 $<br>Cut: Premium","Price:  367 $<br>Cut: Premium","Price:  367 $<br>Cut: Very Good","Price:  742 $<br>Cut: Ideal","Price:  5346 $<br>Cut: Very Good","Price:  3774 $<br>Cut: Very Good","Price:  1199 $<br>Cut: Very Good","Price:  814 $<br>Cut: Ideal","Price:  3629 $<br>Cut: Ideal","Price:  1286 $<br>Cut: Premium","Price:  13001 $<br>Cut: Very Good","Price:  3336 $<br>Cut: Ideal","Price:  1607 $<br>Cut: Very Good","Price:  2724 $<br>Cut: Premium","Price:  583 $<br>Cut: Very Good","Price:  1928 $<br>Cut: Premium","Price:  4072 $<br>Cut: Ideal","Price:  826 $<br>Cut: Ideal","Price:  1197 $<br>Cut: Ideal","Price:  3710 $<br>Cut: Ideal","Price:  4026 $<br>Cut: Premium","Price:  9556 $<br>Cut: Good","Price:  2168 $<br>Cut: Very Good","Price:  10106 $<br>Cut: Ideal","Price:  16048 $<br>Cut: Very Good","Price:  506 $<br>Cut: Ideal","Price:  4770 $<br>Cut: Ideal","Price:  871 $<br>Cut: Ideal","Price:  11323 $<br>Cut: Ideal","Price:  607 $<br>Cut: Ideal","Price:  586 $<br>Cut: Very Good","Price:  500 $<br>Cut: Ideal","Price:  9596 $<br>Cut: Ideal","Price:  3050 $<br>Cut: Ideal","Price:  540 $<br>Cut: Ideal","Price:  4453 $<br>Cut: Ideal","Price:  1422 $<br>Cut: Premium","Price:  680 $<br>Cut: Ideal","Price:  4385 $<br>Cut: Very Good","Price:  1235 $<br>Cut: Premium","Price:  1879 $<br>Cut: Ideal"],"type":"scatter","mode":"markers","marker":{"colorbar":{"title":"carat","ticklen":2},"cmin":0.2,"cmax":2.52,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[2.22,0.43,1,1,0.4,0.31,0.72,0.71,1.5,1.57,0.53,1.51,0.9,1.21,0.72,0.54,1.2,1.01,1.16,0.36,0.4,0.4,1.51,1.13,0.9,0.51,0.79,0.57,1.06,0.33,0.41,0.3,0.42,1.07,0.3,0.61,1.03,0.9,1.07,1.01,0.52,0.52,0.76,0.33,1.32,0.31,0.7,1.14,0.32,1.01,0.32,0.82,0.51,0.5,0.45,0.31,0.63,1.01,0.52,0.66,1.32,1.01,0.53,1.53,0.71,1.04,0.43,0.51,1.19,0.42,1.59,0.7,1.35,0.37,0.4,0.5,0.3,1.28,0.7,0.53,1.01,0.44,0.4,0.42,0.35,0.32,1.14,0.81,0.31,0.72,1,0.42,0.27,0.4,1.5,0.8,0.53,0.37,2.5,1.02,0.79,0.73,0.72,0.71,0.87,0.32,0.36,0.34,0.56,1.21,0.31,0.36,0.53,0.81,0.31,0.43,0.41,1.07,0.7,0.41,0.4,1.21,0.75,0.52,0.4,1.2,0.73,0.38,1,0.9,1.18,0.73,0.51,1.01,0.33,0.47,0.5,0.37,0.27,0.31,0.35,0.72,1.14,0.59,1.51,0.38,0.51,0.3,1.16,0.7,0.9,0.3,0.28,1.33,0.78,0.42,0.7,0.35,1.54,0.5,0.41,0.32,0.9,1.06,0.73,0.91,0.46,1.01,0.7,0.3,1.06,1.06,1.51,1.15,0.7,0.88,1.6,1.03,0.71,0.3,0.7,0.3,1.2,1.53,0.31,1.03,1.33,0.53,0.37,1,0.52,0.36,0.7,0.59,0.84,0.37,1.54,1.08,2,0.82,1.75,0.41,0.92,0.4,0.72,0.41,1.01,0.59,0.31,0.3,0.37,0.93,0.74,0.65,1.21,0.24,0.41,0.44,1.5,0.91,1,0.55,0.52,0.41,1.01,1.52,0.59,1.71,1,0.51,0.4,0.32,0.39,1.15,0.33,0.33,1.17,0.35,1.24,1.02,1.54,1.1,0.31,1.01,0.32,0.38,0.72,0.7,1,0.51,1.05,1.11,0.41,0.27,0.31,1,1.03,0.74,1.04,0.31,1.7,1.38,1.14,0.93,1.01,1.22,1.2,1.2,0.36,1.01,0.52,1.15,1.02,0.7,0.96,0.31,0.51,0.3,0.5,0.32,0.3,0.9,1.69,0.44,0.41,1.21,0.53,0.26,0.9,0.64,0.72,1,0.71,0.74,1.2,1.08,0.53,0.53,0.72,0.62,1.11,1.09,0.36,1,0.37,0.52,0.7,0.4,1.11,1.17,0.4,0.42,2.21,0.42,0.37,0.3,1,0.72,0.85,1.01,0.31,0.32,1.01,0.91,0.3,0.71,0.51,0.54,0.75,1.01,0.3,0.59,0.5,0.51,0.6,0.71,0.36,0.3,0.38,0.34,0.71,0.33,0.3,0.72,0.3,0.42,0.4,1.01,2.01,0.3,0.5,0.41,1.59,0.53,1,0.41,0.25,0.3,0.33,1.06,0.59,0.3,1.25,0.26,0.76,0.59,0.39,0.52,0.28,0.5,0.41,0.4,1.32,1.02,0.26,1.23,0.54,0.76,1,0.71,0.74,0.3,0.51,0.3,0.9,0.55,0.33,0.7,2,1.61,0.3,2.02,0.71,1.01,1.67,1.19,0.33,0.29,0.9,1.5,0.58,0.5,0.3,0.71,2.11,1.31,0.31,0.74,1.02,0.7,0.51,0.33,0.54,0.54,0.5,2.02,0.3,0.36,0.3,0.3,0.57,0.43,1.51,1.68,0.58,0.44,0.31,0.71,1.51,0.52,0.5,1.5,0.51,0.71,1.13,2.17,0.7,1,2.1,0.27,0.7,1.25,1.21,1.02,1.03,0.71,0.48,0.53,0.46,0.46,1.02,0.4,0.9,0.34,1.13,0.32,1.55,0.33,0.33,0.24,1.07,0.32,1.5,0.77,0.41,0.4,0.54,0.31,0.33,0.32,0.32,1.06,0.32,0.41,1.2,1.07,2.07,0.31,1.01,1.7,0.55,0.42,0.59,1.01,0.9,0.51,0.28,1.51,0.59,0.54,0.7,0.4,1.52,1,1.54,1.52,0.99,2,0.92,0.53,1.55,1.52,0.59,0.31,0.51,1.55,0.51,0.31,0.41,1.05,0.41,1.19,1.02,1.7,0.3,0.41,0.3,0.41,1.39,0.52,0.71,0.31,0.9,1.12,0.31,1.58,0.35,0.82,0.71,0.52,2.26,0.56,1.1,0.52,2.1,0.53,0.41,1.2,1.31,0.41,0.31,0.31,1.15,0.31,0.9,0.71,1,0.75,0.31,0.34,0.73,1.53,0.39,0.7,0.7,0.9,2.12,0.9,0.7,0.5,0.39,0.4,1.5,0.3,0.33,0.32,0.41,0.35,1.13,1.05,0.23,1.18,1.51,0.75,2.03,0.74,0.72,1,0.5,0.9,0.27,0.33,2.06,0.54,1.73,0.64,0.5,0.92,1.05,0.6,1.59,1.01,0.54,0.3,0.32,0.34,1.62,0.72,1,0.34,0.47,0.26,0.7,0.59,1,0.31,1.36,1,0.81,1.71,1.02,0.43,1.5,1.5,1.02,1.59,0.4,0.36,1.01,1.18,0.32,1.51,2.05,1.02,1.23,1.11,0.4,1.02,1.59,0.37,1.01,0.25,0.54,0.51,1.51,2.51,0.32,1.21,0.57,0.55,1,0.72,0.37,0.51,1.03,0.44,1.16,0.7,1.09,0.9,1.59,0.72,1.51,0.54,1.22,0.32,1.06,0.3,0.31,1.07,1.02,0.56,0.52,1.18,0.34,0.34,0.39,0.52,0.26,0.74,1.01,0.91,0.87,0.5,0.4,1.15,1.07,0.3,1.2,0.35,0.35,0.33,0.41,0.36,1.5,0.53,1,1.57,0.52,0.31,1.31,0.7,1.1,0.4,1.21,0.33,0.3,1.18,1.01,0.56,0.35,0.91,1.01,0.44,0.92,0.8,0.31,0.37,0.7,0.51,0.3,0.37,0.54,0.72,0.36,1.72,2.4,1.02,0.31,0.52,0.52,0.52,0.31,0.63,1.2,0.7,1.19,0.92,0.5,0.7,1.15,0.7,1.1,2.15,0.32,0.32,0.76,0.5,0.3,0.73,0.91,0.54,0.35,0.33,0.73,1.2,1.2,1.5,0.71,1.16,1.19,0.93,0.31,0.4,1.32,0.51,0.5,0.42,0.74,0.41,0.51,0.31,0.56,0.71,0.7,0.34,0.27,1.29,0.7,1.13,0.31,1.02,0.8,0.96,0.41,0.41,0.33,0.26,0.81,0.61,0.55,2.01,0.3,0.78,0.3,0.52,0.3,0.31,0.59,0.71,0.33,1.02,0.9,0.23,0.33,0.7,1.28,1.6,0.75,1,0.7,0.3,0.3,0.3,0.7,0.52,0.7,0.7,0.9,0.41,1.11,0.52,0.8,0.39,0.83,0.58,0.7,0.51,0.3,0.43,0.34,0.24,0.5,1,0.58,0.53,2.41,2.42,0.9,0.52,0.4,1.03,1.2,0.72,0.38,1.52,0.7,0.33,0.9,0.82,0.71,1.01,1,1.21,0.35,2.21,0.54,1.14,0.31,1,0.42,0.72,0.41,1.05,1,0.7,0.9,0.34,0.7,1.09,2.01,0.7,1.01,0.37,1.22,0.84,0.53,0.72,1.39,1,0.31,0.33,0.5,0.35,1.02,2.03,1.12,0.5,0.53,0.51,0.33,0.54,0.7,1.51,0.26,1.04,0.31,0.53,1.07,0.3,1.15,0.31,0.31,1.26,1.51,0.42,0.77,0.71,0.32,1.09,0.51,1.28,0.72,0.77,0.36,0.9,1.52,1.37,1.21,0.7,0.35,0.33,0.38,0.78,0.55,0.36,0.41,0.71,0.57,0.69,0.31,1.27,1.01,2.01,1.51,0.37,0.7,2.02,0.36,0.33,0.35,0.53,0.32,1.5,0.7,1.47,0.37,1.83,0.72,1.24,0.5,1.5,0.42,0.42,0.9,0.55,2.52,0.52,0.36,0.3,0.31,0.72,0.36,0.3,1.06,0.72,0.29,0.3,0.52,1.24,0.2,0.2,0.3,1.21,0.83,0.43,0.3,1,0.5,1.52,0.75,0.53,0.72,0.31,0.51,0.9,0.3,0.52,0.71,0.91,1.63,0.72,1.59,1.5,0.3,1.04,0.31,1.26,0.34,0.27,0.27,1.53,0.76,0.3,0.91,0.43,0.31,1.13,0.52,0.51],"size":[88.3620689655172,18.9224137931034,41.0344827586207,41.0344827586207,17.7586206896552,14.2672413793103,30.1724137931035,29.7844827586207,60.4310344827586,63.1465517241379,22.801724137931,60.8189655172414,37.1551724137931,49.1810344827586,30.1724137931035,23.1896551724138,48.7931034482759,41.4224137931035,47.2413793103448,16.2068965517241,17.7586206896552,17.7586206896552,60.8189655172414,46.0775862068965,37.1551724137931,22.0258620689655,32.8879310344828,24.3534482758621,43.3620689655172,15.0431034482759,18.1465517241379,13.8793103448276,18.5344827586207,43.75,13.8793103448276,25.9051724137931,42.198275862069,37.1551724137931,43.75,41.4224137931035,22.4137931034483,22.4137931034483,31.7241379310345,15.0431034482759,53.448275862069,14.2672413793103,29.3965517241379,46.4655172413793,14.6551724137931,41.4224137931035,14.6551724137931,34.051724137931,22.0258620689655,21.6379310344828,19.698275862069,14.2672413793103,26.6810344827586,41.4224137931035,22.4137931034483,27.8448275862069,53.448275862069,41.4224137931035,22.801724137931,61.5948275862069,29.7844827586207,42.5862068965517,18.9224137931034,22.0258620689655,48.4051724137931,18.5344827586207,63.9224137931035,29.3965517241379,54.6120689655172,16.5948275862069,17.7586206896552,21.6379310344828,13.8793103448276,51.8965517241379,29.3965517241379,22.801724137931,41.4224137931035,19.3103448275862,17.7586206896552,18.5344827586207,15.8189655172414,14.6551724137931,46.4655172413793,33.6637931034483,14.2672413793103,30.1724137931035,41.0344827586207,18.5344827586207,12.7155172413793,17.7586206896552,60.4310344827586,33.2758620689655,22.801724137931,16.5948275862069,99.2241379310345,41.8103448275862,32.8879310344828,30.5603448275862,30.1724137931035,29.7844827586207,35.9913793103448,14.6551724137931,16.2068965517241,15.4310344827586,23.9655172413793,49.1810344827586,14.2672413793103,16.2068965517241,22.801724137931,33.6637931034483,14.2672413793103,18.9224137931034,18.1465517241379,43.75,29.3965517241379,18.1465517241379,17.7586206896552,49.1810344827586,31.3362068965517,22.4137931034483,17.7586206896552,48.7931034482759,30.5603448275862,16.9827586206897,41.0344827586207,37.1551724137931,48.0172413793103,30.5603448275862,22.0258620689655,41.4224137931035,15.0431034482759,20.4741379310345,21.6379310344828,16.5948275862069,12.7155172413793,14.2672413793103,15.8189655172414,30.1724137931035,46.4655172413793,25.1293103448276,60.8189655172414,16.9827586206897,22.0258620689655,13.8793103448276,47.2413793103448,29.3965517241379,37.1551724137931,13.8793103448276,13.1034482758621,53.8362068965517,32.5,18.5344827586207,29.3965517241379,15.8189655172414,61.9827586206897,21.6379310344828,18.1465517241379,14.6551724137931,37.1551724137931,43.3620689655172,30.5603448275862,37.5431034482759,20.0862068965517,41.4224137931035,29.3965517241379,13.8793103448276,43.3620689655172,43.3620689655172,60.8189655172414,46.8534482758621,29.3965517241379,36.3793103448276,64.3103448275862,42.198275862069,29.7844827586207,13.8793103448276,29.3965517241379,13.8793103448276,48.7931034482759,61.5948275862069,14.2672413793103,42.198275862069,53.8362068965517,22.801724137931,16.5948275862069,41.0344827586207,22.4137931034483,16.2068965517241,29.3965517241379,25.1293103448276,34.8275862068966,16.5948275862069,61.9827586206897,44.1379310344828,79.8275862068966,34.051724137931,70.1293103448276,18.1465517241379,37.9310344827586,17.7586206896552,30.1724137931035,18.1465517241379,41.4224137931035,25.1293103448276,14.2672413793103,13.8793103448276,16.5948275862069,38.3189655172414,30.948275862069,27.4568965517241,49.1810344827586,11.551724137931,18.1465517241379,19.3103448275862,60.4310344827586,37.5431034482759,41.0344827586207,23.5775862068966,22.4137931034483,18.1465517241379,41.4224137931035,61.2068965517241,25.1293103448276,68.5775862068965,41.0344827586207,22.0258620689655,17.7586206896552,14.6551724137931,17.3706896551724,46.8534482758621,15.0431034482759,15.0431034482759,47.6293103448276,15.8189655172414,50.3448275862069,41.8103448275862,61.9827586206897,44.9137931034483,14.2672413793103,41.4224137931035,14.6551724137931,16.9827586206897,30.1724137931035,29.3965517241379,41.0344827586207,22.0258620689655,42.9741379310345,45.301724137931,18.1465517241379,12.7155172413793,14.2672413793103,41.0344827586207,42.198275862069,30.948275862069,42.5862068965517,14.2672413793103,68.1896551724138,55.7758620689655,46.4655172413793,38.3189655172414,41.4224137931035,49.5689655172414,48.7931034482759,48.7931034482759,16.2068965517241,41.4224137931035,22.4137931034483,46.8534482758621,41.8103448275862,29.3965517241379,39.4827586206897,14.2672413793103,22.0258620689655,13.8793103448276,21.6379310344828,14.6551724137931,13.8793103448276,37.1551724137931,67.801724137931,19.3103448275862,18.1465517241379,49.1810344827586,22.801724137931,12.3275862068966,37.1551724137931,27.0689655172414,30.1724137931035,41.0344827586207,29.7844827586207,30.948275862069,48.7931034482759,44.1379310344828,22.801724137931,22.801724137931,30.1724137931035,26.2931034482759,45.301724137931,44.5258620689655,16.2068965517241,41.0344827586207,16.5948275862069,22.4137931034483,29.3965517241379,17.7586206896552,45.301724137931,47.6293103448276,17.7586206896552,18.5344827586207,87.9741379310345,18.5344827586207,16.5948275862069,13.8793103448276,41.0344827586207,30.1724137931035,35.2155172413793,41.4224137931035,14.2672413793103,14.6551724137931,41.4224137931035,37.5431034482759,13.8793103448276,29.7844827586207,22.0258620689655,23.1896551724138,31.3362068965517,41.4224137931035,13.8793103448276,25.1293103448276,21.6379310344828,22.0258620689655,25.5172413793103,29.7844827586207,16.2068965517241,13.8793103448276,16.9827586206897,15.4310344827586,29.7844827586207,15.0431034482759,13.8793103448276,30.1724137931035,13.8793103448276,18.5344827586207,17.7586206896552,41.4224137931035,80.2155172413793,13.8793103448276,21.6379310344828,18.1465517241379,63.9224137931035,22.801724137931,41.0344827586207,18.1465517241379,11.9396551724138,13.8793103448276,15.0431034482759,43.3620689655172,25.1293103448276,13.8793103448276,50.7327586206897,12.3275862068966,31.7241379310345,25.1293103448276,17.3706896551724,22.4137931034483,13.1034482758621,21.6379310344828,18.1465517241379,17.7586206896552,53.448275862069,41.8103448275862,12.3275862068966,49.9568965517241,23.1896551724138,31.7241379310345,41.0344827586207,29.7844827586207,30.948275862069,13.8793103448276,22.0258620689655,13.8793103448276,37.1551724137931,23.5775862068966,15.0431034482759,29.3965517241379,79.8275862068966,64.698275862069,13.8793103448276,80.6034482758621,29.7844827586207,41.4224137931035,67.0258620689655,48.4051724137931,15.0431034482759,13.4913793103448,37.1551724137931,60.4310344827586,24.7413793103448,21.6379310344828,13.8793103448276,29.7844827586207,84.0948275862069,53.0603448275862,14.2672413793103,30.948275862069,41.8103448275862,29.3965517241379,22.0258620689655,15.0431034482759,23.1896551724138,23.1896551724138,21.6379310344828,80.6034482758621,13.8793103448276,16.2068965517241,13.8793103448276,13.8793103448276,24.3534482758621,18.9224137931034,60.8189655172414,67.4137931034483,24.7413793103448,19.3103448275862,14.2672413793103,29.7844827586207,60.8189655172414,22.4137931034483,21.6379310344828,60.4310344827586,22.0258620689655,29.7844827586207,46.0775862068965,86.4224137931034,29.3965517241379,41.0344827586207,83.7068965517242,12.7155172413793,29.3965517241379,50.7327586206897,49.1810344827586,41.8103448275862,42.198275862069,29.7844827586207,20.8620689655172,22.801724137931,20.0862068965517,20.0862068965517,41.8103448275862,17.7586206896552,37.1551724137931,15.4310344827586,46.0775862068965,14.6551724137931,62.3706896551724,15.0431034482759,15.0431034482759,11.551724137931,43.75,14.6551724137931,60.4310344827586,32.1120689655172,18.1465517241379,17.7586206896552,23.1896551724138,14.2672413793103,15.0431034482759,14.6551724137931,14.6551724137931,43.3620689655172,14.6551724137931,18.1465517241379,48.7931034482759,43.75,82.5431034482759,14.2672413793103,41.4224137931035,68.1896551724138,23.5775862068966,18.5344827586207,25.1293103448276,41.4224137931035,37.1551724137931,22.0258620689655,13.1034482758621,60.8189655172414,25.1293103448276,23.1896551724138,29.3965517241379,17.7586206896552,61.2068965517241,41.0344827586207,61.9827586206897,61.2068965517241,40.6465517241379,79.8275862068966,37.9310344827586,22.801724137931,62.3706896551724,61.2068965517241,25.1293103448276,14.2672413793103,22.0258620689655,62.3706896551724,22.0258620689655,14.2672413793103,18.1465517241379,42.9741379310345,18.1465517241379,48.4051724137931,41.8103448275862,68.1896551724138,13.8793103448276,18.1465517241379,13.8793103448276,18.1465517241379,56.1637931034483,22.4137931034483,29.7844827586207,14.2672413793103,37.1551724137931,45.6896551724138,14.2672413793103,63.5344827586207,15.8189655172414,34.051724137931,29.7844827586207,22.4137931034483,89.9137931034483,23.9655172413793,44.9137931034483,22.4137931034483,83.7068965517242,22.801724137931,18.1465517241379,48.7931034482759,53.0603448275862,18.1465517241379,14.2672413793103,14.2672413793103,46.8534482758621,14.2672413793103,37.1551724137931,29.7844827586207,41.0344827586207,31.3362068965517,14.2672413793103,15.4310344827586,30.5603448275862,61.5948275862069,17.3706896551724,29.3965517241379,29.3965517241379,37.1551724137931,84.4827586206897,37.1551724137931,29.3965517241379,21.6379310344828,17.3706896551724,17.7586206896552,60.4310344827586,13.8793103448276,15.0431034482759,14.6551724137931,18.1465517241379,15.8189655172414,46.0775862068965,42.9741379310345,11.1637931034483,48.0172413793103,60.8189655172414,31.3362068965517,80.9913793103448,30.948275862069,30.1724137931035,41.0344827586207,21.6379310344828,37.1551724137931,12.7155172413793,15.0431034482759,82.1551724137931,23.1896551724138,69.3534482758621,27.0689655172414,21.6379310344828,37.9310344827586,42.9741379310345,25.5172413793103,63.9224137931035,41.4224137931035,23.1896551724138,13.8793103448276,14.6551724137931,15.4310344827586,65.0862068965517,30.1724137931035,41.0344827586207,15.4310344827586,20.4741379310345,12.3275862068966,29.3965517241379,25.1293103448276,41.0344827586207,14.2672413793103,55,41.0344827586207,33.6637931034483,68.5775862068965,41.8103448275862,18.9224137931034,60.4310344827586,60.4310344827586,41.8103448275862,63.9224137931035,17.7586206896552,16.2068965517241,41.4224137931035,48.0172413793103,14.6551724137931,60.8189655172414,81.7672413793103,41.8103448275862,49.9568965517241,45.301724137931,17.7586206896552,41.8103448275862,63.9224137931035,16.5948275862069,41.4224137931035,11.9396551724138,23.1896551724138,22.0258620689655,60.8189655172414,99.6120689655172,14.6551724137931,49.1810344827586,24.3534482758621,23.5775862068966,41.0344827586207,30.1724137931035,16.5948275862069,22.0258620689655,42.198275862069,19.3103448275862,47.2413793103448,29.3965517241379,44.5258620689655,37.1551724137931,63.9224137931035,30.1724137931035,60.8189655172414,23.1896551724138,49.5689655172414,14.6551724137931,43.3620689655172,13.8793103448276,14.2672413793103,43.75,41.8103448275862,23.9655172413793,22.4137931034483,48.0172413793103,15.4310344827586,15.4310344827586,17.3706896551724,22.4137931034483,12.3275862068966,30.948275862069,41.4224137931035,37.5431034482759,35.9913793103448,21.6379310344828,17.7586206896552,46.8534482758621,43.75,13.8793103448276,48.7931034482759,15.8189655172414,15.8189655172414,15.0431034482759,18.1465517241379,16.2068965517241,60.4310344827586,22.801724137931,41.0344827586207,63.1465517241379,22.4137931034483,14.2672413793103,53.0603448275862,29.3965517241379,44.9137931034483,17.7586206896552,49.1810344827586,15.0431034482759,13.8793103448276,48.0172413793103,41.4224137931035,23.9655172413793,15.8189655172414,37.5431034482759,41.4224137931035,19.3103448275862,37.9310344827586,33.2758620689655,14.2672413793103,16.5948275862069,29.3965517241379,22.0258620689655,13.8793103448276,16.5948275862069,23.1896551724138,30.1724137931035,16.2068965517241,68.9655172413793,95.3448275862069,41.8103448275862,14.2672413793103,22.4137931034483,22.4137931034483,22.4137931034483,14.2672413793103,26.6810344827586,48.7931034482759,29.3965517241379,48.4051724137931,37.9310344827586,21.6379310344828,29.3965517241379,46.8534482758621,29.3965517241379,44.9137931034483,85.6465517241379,14.6551724137931,14.6551724137931,31.7241379310345,21.6379310344828,13.8793103448276,30.5603448275862,37.5431034482759,23.1896551724138,15.8189655172414,15.0431034482759,30.5603448275862,48.7931034482759,48.7931034482759,60.4310344827586,29.7844827586207,47.2413793103448,48.4051724137931,38.3189655172414,14.2672413793103,17.7586206896552,53.448275862069,22.0258620689655,21.6379310344828,18.5344827586207,30.948275862069,18.1465517241379,22.0258620689655,14.2672413793103,23.9655172413793,29.7844827586207,29.3965517241379,15.4310344827586,12.7155172413793,52.2844827586207,29.3965517241379,46.0775862068965,14.2672413793103,41.8103448275862,33.2758620689655,39.4827586206897,18.1465517241379,18.1465517241379,15.0431034482759,12.3275862068966,33.6637931034483,25.9051724137931,23.5775862068966,80.2155172413793,13.8793103448276,32.5,13.8793103448276,22.4137931034483,13.8793103448276,14.2672413793103,25.1293103448276,29.7844827586207,15.0431034482759,41.8103448275862,37.1551724137931,11.1637931034483,15.0431034482759,29.3965517241379,51.8965517241379,64.3103448275862,31.3362068965517,41.0344827586207,29.3965517241379,13.8793103448276,13.8793103448276,13.8793103448276,29.3965517241379,22.4137931034483,29.3965517241379,29.3965517241379,37.1551724137931,18.1465517241379,45.301724137931,22.4137931034483,33.2758620689655,17.3706896551724,34.4396551724138,24.7413793103448,29.3965517241379,22.0258620689655,13.8793103448276,18.9224137931034,15.4310344827586,11.551724137931,21.6379310344828,41.0344827586207,24.7413793103448,22.801724137931,95.7327586206897,96.1206896551724,37.1551724137931,22.4137931034483,17.7586206896552,42.198275862069,48.7931034482759,30.1724137931035,16.9827586206897,61.2068965517241,29.3965517241379,15.0431034482759,37.1551724137931,34.051724137931,29.7844827586207,41.4224137931035,41.0344827586207,49.1810344827586,15.8189655172414,87.9741379310345,23.1896551724138,46.4655172413793,14.2672413793103,41.0344827586207,18.5344827586207,30.1724137931035,18.1465517241379,42.9741379310345,41.0344827586207,29.3965517241379,37.1551724137931,15.4310344827586,29.3965517241379,44.5258620689655,80.2155172413793,29.3965517241379,41.4224137931035,16.5948275862069,49.5689655172414,34.8275862068966,22.801724137931,30.1724137931035,56.1637931034483,41.0344827586207,14.2672413793103,15.0431034482759,21.6379310344828,15.8189655172414,41.8103448275862,80.9913793103448,45.6896551724138,21.6379310344828,22.801724137931,22.0258620689655,15.0431034482759,23.1896551724138,29.3965517241379,60.8189655172414,12.3275862068966,42.5862068965517,14.2672413793103,22.801724137931,43.75,13.8793103448276,46.8534482758621,14.2672413793103,14.2672413793103,51.1206896551724,60.8189655172414,18.5344827586207,32.1120689655172,29.7844827586207,14.6551724137931,44.5258620689655,22.0258620689655,51.8965517241379,30.1724137931035,32.1120689655172,16.2068965517241,37.1551724137931,61.2068965517241,55.3879310344828,49.1810344827586,29.3965517241379,15.8189655172414,15.0431034482759,16.9827586206897,32.5,23.5775862068966,16.2068965517241,18.1465517241379,29.7844827586207,24.3534482758621,29.0086206896552,14.2672413793103,51.5086206896552,41.4224137931035,80.2155172413793,60.8189655172414,16.5948275862069,29.3965517241379,80.6034482758621,16.2068965517241,15.0431034482759,15.8189655172414,22.801724137931,14.6551724137931,60.4310344827586,29.3965517241379,59.2672413793103,16.5948275862069,73.2327586206897,30.1724137931035,50.3448275862069,21.6379310344828,60.4310344827586,18.5344827586207,18.5344827586207,37.1551724137931,23.5775862068966,100,22.4137931034483,16.2068965517241,13.8793103448276,14.2672413793103,30.1724137931035,16.2068965517241,13.8793103448276,43.3620689655172,30.1724137931035,13.4913793103448,13.8793103448276,22.4137931034483,50.3448275862069,10,10,13.8793103448276,49.1810344827586,34.4396551724138,18.9224137931034,13.8793103448276,41.0344827586207,21.6379310344828,61.2068965517241,31.3362068965517,22.801724137931,30.1724137931035,14.2672413793103,22.0258620689655,37.1551724137931,13.8793103448276,22.4137931034483,29.7844827586207,37.5431034482759,65.4741379310345,30.1724137931035,63.9224137931035,60.4310344827586,13.8793103448276,42.5862068965517,14.2672413793103,51.1206896551724,15.4310344827586,12.7155172413793,12.7155172413793,61.5948275862069,31.7241379310345,13.8793103448276,37.5431034482759,18.9224137931034,14.2672413793103,46.0775862068965,22.4137931034483,22.0258620689655],"sizemode":"area","line":{"colorbar":{"title":"","ticklen":2},"cmin":0.2,"cmax":2.52,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[2.22,0.43,1,1,0.4,0.31,0.72,0.71,1.5,1.57,0.53,1.51,0.9,1.21,0.72,0.54,1.2,1.01,1.16,0.36,0.4,0.4,1.51,1.13,0.9,0.51,0.79,0.57,1.06,0.33,0.41,0.3,0.42,1.07,0.3,0.61,1.03,0.9,1.07,1.01,0.52,0.52,0.76,0.33,1.32,0.31,0.7,1.14,0.32,1.01,0.32,0.82,0.51,0.5,0.45,0.31,0.63,1.01,0.52,0.66,1.32,1.01,0.53,1.53,0.71,1.04,0.43,0.51,1.19,0.42,1.59,0.7,1.35,0.37,0.4,0.5,0.3,1.28,0.7,0.53,1.01,0.44,0.4,0.42,0.35,0.32,1.14,0.81,0.31,0.72,1,0.42,0.27,0.4,1.5,0.8,0.53,0.37,2.5,1.02,0.79,0.73,0.72,0.71,0.87,0.32,0.36,0.34,0.56,1.21,0.31,0.36,0.53,0.81,0.31,0.43,0.41,1.07,0.7,0.41,0.4,1.21,0.75,0.52,0.4,1.2,0.73,0.38,1,0.9,1.18,0.73,0.51,1.01,0.33,0.47,0.5,0.37,0.27,0.31,0.35,0.72,1.14,0.59,1.51,0.38,0.51,0.3,1.16,0.7,0.9,0.3,0.28,1.33,0.78,0.42,0.7,0.35,1.54,0.5,0.41,0.32,0.9,1.06,0.73,0.91,0.46,1.01,0.7,0.3,1.06,1.06,1.51,1.15,0.7,0.88,1.6,1.03,0.71,0.3,0.7,0.3,1.2,1.53,0.31,1.03,1.33,0.53,0.37,1,0.52,0.36,0.7,0.59,0.84,0.37,1.54,1.08,2,0.82,1.75,0.41,0.92,0.4,0.72,0.41,1.01,0.59,0.31,0.3,0.37,0.93,0.74,0.65,1.21,0.24,0.41,0.44,1.5,0.91,1,0.55,0.52,0.41,1.01,1.52,0.59,1.71,1,0.51,0.4,0.32,0.39,1.15,0.33,0.33,1.17,0.35,1.24,1.02,1.54,1.1,0.31,1.01,0.32,0.38,0.72,0.7,1,0.51,1.05,1.11,0.41,0.27,0.31,1,1.03,0.74,1.04,0.31,1.7,1.38,1.14,0.93,1.01,1.22,1.2,1.2,0.36,1.01,0.52,1.15,1.02,0.7,0.96,0.31,0.51,0.3,0.5,0.32,0.3,0.9,1.69,0.44,0.41,1.21,0.53,0.26,0.9,0.64,0.72,1,0.71,0.74,1.2,1.08,0.53,0.53,0.72,0.62,1.11,1.09,0.36,1,0.37,0.52,0.7,0.4,1.11,1.17,0.4,0.42,2.21,0.42,0.37,0.3,1,0.72,0.85,1.01,0.31,0.32,1.01,0.91,0.3,0.71,0.51,0.54,0.75,1.01,0.3,0.59,0.5,0.51,0.6,0.71,0.36,0.3,0.38,0.34,0.71,0.33,0.3,0.72,0.3,0.42,0.4,1.01,2.01,0.3,0.5,0.41,1.59,0.53,1,0.41,0.25,0.3,0.33,1.06,0.59,0.3,1.25,0.26,0.76,0.59,0.39,0.52,0.28,0.5,0.41,0.4,1.32,1.02,0.26,1.23,0.54,0.76,1,0.71,0.74,0.3,0.51,0.3,0.9,0.55,0.33,0.7,2,1.61,0.3,2.02,0.71,1.01,1.67,1.19,0.33,0.29,0.9,1.5,0.58,0.5,0.3,0.71,2.11,1.31,0.31,0.74,1.02,0.7,0.51,0.33,0.54,0.54,0.5,2.02,0.3,0.36,0.3,0.3,0.57,0.43,1.51,1.68,0.58,0.44,0.31,0.71,1.51,0.52,0.5,1.5,0.51,0.71,1.13,2.17,0.7,1,2.1,0.27,0.7,1.25,1.21,1.02,1.03,0.71,0.48,0.53,0.46,0.46,1.02,0.4,0.9,0.34,1.13,0.32,1.55,0.33,0.33,0.24,1.07,0.32,1.5,0.77,0.41,0.4,0.54,0.31,0.33,0.32,0.32,1.06,0.32,0.41,1.2,1.07,2.07,0.31,1.01,1.7,0.55,0.42,0.59,1.01,0.9,0.51,0.28,1.51,0.59,0.54,0.7,0.4,1.52,1,1.54,1.52,0.99,2,0.92,0.53,1.55,1.52,0.59,0.31,0.51,1.55,0.51,0.31,0.41,1.05,0.41,1.19,1.02,1.7,0.3,0.41,0.3,0.41,1.39,0.52,0.71,0.31,0.9,1.12,0.31,1.58,0.35,0.82,0.71,0.52,2.26,0.56,1.1,0.52,2.1,0.53,0.41,1.2,1.31,0.41,0.31,0.31,1.15,0.31,0.9,0.71,1,0.75,0.31,0.34,0.73,1.53,0.39,0.7,0.7,0.9,2.12,0.9,0.7,0.5,0.39,0.4,1.5,0.3,0.33,0.32,0.41,0.35,1.13,1.05,0.23,1.18,1.51,0.75,2.03,0.74,0.72,1,0.5,0.9,0.27,0.33,2.06,0.54,1.73,0.64,0.5,0.92,1.05,0.6,1.59,1.01,0.54,0.3,0.32,0.34,1.62,0.72,1,0.34,0.47,0.26,0.7,0.59,1,0.31,1.36,1,0.81,1.71,1.02,0.43,1.5,1.5,1.02,1.59,0.4,0.36,1.01,1.18,0.32,1.51,2.05,1.02,1.23,1.11,0.4,1.02,1.59,0.37,1.01,0.25,0.54,0.51,1.51,2.51,0.32,1.21,0.57,0.55,1,0.72,0.37,0.51,1.03,0.44,1.16,0.7,1.09,0.9,1.59,0.72,1.51,0.54,1.22,0.32,1.06,0.3,0.31,1.07,1.02,0.56,0.52,1.18,0.34,0.34,0.39,0.52,0.26,0.74,1.01,0.91,0.87,0.5,0.4,1.15,1.07,0.3,1.2,0.35,0.35,0.33,0.41,0.36,1.5,0.53,1,1.57,0.52,0.31,1.31,0.7,1.1,0.4,1.21,0.33,0.3,1.18,1.01,0.56,0.35,0.91,1.01,0.44,0.92,0.8,0.31,0.37,0.7,0.51,0.3,0.37,0.54,0.72,0.36,1.72,2.4,1.02,0.31,0.52,0.52,0.52,0.31,0.63,1.2,0.7,1.19,0.92,0.5,0.7,1.15,0.7,1.1,2.15,0.32,0.32,0.76,0.5,0.3,0.73,0.91,0.54,0.35,0.33,0.73,1.2,1.2,1.5,0.71,1.16,1.19,0.93,0.31,0.4,1.32,0.51,0.5,0.42,0.74,0.41,0.51,0.31,0.56,0.71,0.7,0.34,0.27,1.29,0.7,1.13,0.31,1.02,0.8,0.96,0.41,0.41,0.33,0.26,0.81,0.61,0.55,2.01,0.3,0.78,0.3,0.52,0.3,0.31,0.59,0.71,0.33,1.02,0.9,0.23,0.33,0.7,1.28,1.6,0.75,1,0.7,0.3,0.3,0.3,0.7,0.52,0.7,0.7,0.9,0.41,1.11,0.52,0.8,0.39,0.83,0.58,0.7,0.51,0.3,0.43,0.34,0.24,0.5,1,0.58,0.53,2.41,2.42,0.9,0.52,0.4,1.03,1.2,0.72,0.38,1.52,0.7,0.33,0.9,0.82,0.71,1.01,1,1.21,0.35,2.21,0.54,1.14,0.31,1,0.42,0.72,0.41,1.05,1,0.7,0.9,0.34,0.7,1.09,2.01,0.7,1.01,0.37,1.22,0.84,0.53,0.72,1.39,1,0.31,0.33,0.5,0.35,1.02,2.03,1.12,0.5,0.53,0.51,0.33,0.54,0.7,1.51,0.26,1.04,0.31,0.53,1.07,0.3,1.15,0.31,0.31,1.26,1.51,0.42,0.77,0.71,0.32,1.09,0.51,1.28,0.72,0.77,0.36,0.9,1.52,1.37,1.21,0.7,0.35,0.33,0.38,0.78,0.55,0.36,0.41,0.71,0.57,0.69,0.31,1.27,1.01,2.01,1.51,0.37,0.7,2.02,0.36,0.33,0.35,0.53,0.32,1.5,0.7,1.47,0.37,1.83,0.72,1.24,0.5,1.5,0.42,0.42,0.9,0.55,2.52,0.52,0.36,0.3,0.31,0.72,0.36,0.3,1.06,0.72,0.29,0.3,0.52,1.24,0.2,0.2,0.3,1.21,0.83,0.43,0.3,1,0.5,1.52,0.75,0.53,0.72,0.31,0.51,0.9,0.3,0.52,0.71,0.91,1.63,0.72,1.59,1.5,0.3,1.04,0.31,1.26,0.34,0.27,0.27,1.53,0.76,0.3,0.91,0.43,0.31,1.13,0.52,0.51]}},"textfont":{"size":[88.3620689655172,18.9224137931034,41.0344827586207,41.0344827586207,17.7586206896552,14.2672413793103,30.1724137931035,29.7844827586207,60.4310344827586,63.1465517241379,22.801724137931,60.8189655172414,37.1551724137931,49.1810344827586,30.1724137931035,23.1896551724138,48.7931034482759,41.4224137931035,47.2413793103448,16.2068965517241,17.7586206896552,17.7586206896552,60.8189655172414,46.0775862068965,37.1551724137931,22.0258620689655,32.8879310344828,24.3534482758621,43.3620689655172,15.0431034482759,18.1465517241379,13.8793103448276,18.5344827586207,43.75,13.8793103448276,25.9051724137931,42.198275862069,37.1551724137931,43.75,41.4224137931035,22.4137931034483,22.4137931034483,31.7241379310345,15.0431034482759,53.448275862069,14.2672413793103,29.3965517241379,46.4655172413793,14.6551724137931,41.4224137931035,14.6551724137931,34.051724137931,22.0258620689655,21.6379310344828,19.698275862069,14.2672413793103,26.6810344827586,41.4224137931035,22.4137931034483,27.8448275862069,53.448275862069,41.4224137931035,22.801724137931,61.5948275862069,29.7844827586207,42.5862068965517,18.9224137931034,22.0258620689655,48.4051724137931,18.5344827586207,63.9224137931035,29.3965517241379,54.6120689655172,16.5948275862069,17.7586206896552,21.6379310344828,13.8793103448276,51.8965517241379,29.3965517241379,22.801724137931,41.4224137931035,19.3103448275862,17.7586206896552,18.5344827586207,15.8189655172414,14.6551724137931,46.4655172413793,33.6637931034483,14.2672413793103,30.1724137931035,41.0344827586207,18.5344827586207,12.7155172413793,17.7586206896552,60.4310344827586,33.2758620689655,22.801724137931,16.5948275862069,99.2241379310345,41.8103448275862,32.8879310344828,30.5603448275862,30.1724137931035,29.7844827586207,35.9913793103448,14.6551724137931,16.2068965517241,15.4310344827586,23.9655172413793,49.1810344827586,14.2672413793103,16.2068965517241,22.801724137931,33.6637931034483,14.2672413793103,18.9224137931034,18.1465517241379,43.75,29.3965517241379,18.1465517241379,17.7586206896552,49.1810344827586,31.3362068965517,22.4137931034483,17.7586206896552,48.7931034482759,30.5603448275862,16.9827586206897,41.0344827586207,37.1551724137931,48.0172413793103,30.5603448275862,22.0258620689655,41.4224137931035,15.0431034482759,20.4741379310345,21.6379310344828,16.5948275862069,12.7155172413793,14.2672413793103,15.8189655172414,30.1724137931035,46.4655172413793,25.1293103448276,60.8189655172414,16.9827586206897,22.0258620689655,13.8793103448276,47.2413793103448,29.3965517241379,37.1551724137931,13.8793103448276,13.1034482758621,53.8362068965517,32.5,18.5344827586207,29.3965517241379,15.8189655172414,61.9827586206897,21.6379310344828,18.1465517241379,14.6551724137931,37.1551724137931,43.3620689655172,30.5603448275862,37.5431034482759,20.0862068965517,41.4224137931035,29.3965517241379,13.8793103448276,43.3620689655172,43.3620689655172,60.8189655172414,46.8534482758621,29.3965517241379,36.3793103448276,64.3103448275862,42.198275862069,29.7844827586207,13.8793103448276,29.3965517241379,13.8793103448276,48.7931034482759,61.5948275862069,14.2672413793103,42.198275862069,53.8362068965517,22.801724137931,16.5948275862069,41.0344827586207,22.4137931034483,16.2068965517241,29.3965517241379,25.1293103448276,34.8275862068966,16.5948275862069,61.9827586206897,44.1379310344828,79.8275862068966,34.051724137931,70.1293103448276,18.1465517241379,37.9310344827586,17.7586206896552,30.1724137931035,18.1465517241379,41.4224137931035,25.1293103448276,14.2672413793103,13.8793103448276,16.5948275862069,38.3189655172414,30.948275862069,27.4568965517241,49.1810344827586,11.551724137931,18.1465517241379,19.3103448275862,60.4310344827586,37.5431034482759,41.0344827586207,23.5775862068966,22.4137931034483,18.1465517241379,41.4224137931035,61.2068965517241,25.1293103448276,68.5775862068965,41.0344827586207,22.0258620689655,17.7586206896552,14.6551724137931,17.3706896551724,46.8534482758621,15.0431034482759,15.0431034482759,47.6293103448276,15.8189655172414,50.3448275862069,41.8103448275862,61.9827586206897,44.9137931034483,14.2672413793103,41.4224137931035,14.6551724137931,16.9827586206897,30.1724137931035,29.3965517241379,41.0344827586207,22.0258620689655,42.9741379310345,45.301724137931,18.1465517241379,12.7155172413793,14.2672413793103,41.0344827586207,42.198275862069,30.948275862069,42.5862068965517,14.2672413793103,68.1896551724138,55.7758620689655,46.4655172413793,38.3189655172414,41.4224137931035,49.5689655172414,48.7931034482759,48.7931034482759,16.2068965517241,41.4224137931035,22.4137931034483,46.8534482758621,41.8103448275862,29.3965517241379,39.4827586206897,14.2672413793103,22.0258620689655,13.8793103448276,21.6379310344828,14.6551724137931,13.8793103448276,37.1551724137931,67.801724137931,19.3103448275862,18.1465517241379,49.1810344827586,22.801724137931,12.3275862068966,37.1551724137931,27.0689655172414,30.1724137931035,41.0344827586207,29.7844827586207,30.948275862069,48.7931034482759,44.1379310344828,22.801724137931,22.801724137931,30.1724137931035,26.2931034482759,45.301724137931,44.5258620689655,16.2068965517241,41.0344827586207,16.5948275862069,22.4137931034483,29.3965517241379,17.7586206896552,45.301724137931,47.6293103448276,17.7586206896552,18.5344827586207,87.9741379310345,18.5344827586207,16.5948275862069,13.8793103448276,41.0344827586207,30.1724137931035,35.2155172413793,41.4224137931035,14.2672413793103,14.6551724137931,41.4224137931035,37.5431034482759,13.8793103448276,29.7844827586207,22.0258620689655,23.1896551724138,31.3362068965517,41.4224137931035,13.8793103448276,25.1293103448276,21.6379310344828,22.0258620689655,25.5172413793103,29.7844827586207,16.2068965517241,13.8793103448276,16.9827586206897,15.4310344827586,29.7844827586207,15.0431034482759,13.8793103448276,30.1724137931035,13.8793103448276,18.5344827586207,17.7586206896552,41.4224137931035,80.2155172413793,13.8793103448276,21.6379310344828,18.1465517241379,63.9224137931035,22.801724137931,41.0344827586207,18.1465517241379,11.9396551724138,13.8793103448276,15.0431034482759,43.3620689655172,25.1293103448276,13.8793103448276,50.7327586206897,12.3275862068966,31.7241379310345,25.1293103448276,17.3706896551724,22.4137931034483,13.1034482758621,21.6379310344828,18.1465517241379,17.7586206896552,53.448275862069,41.8103448275862,12.3275862068966,49.9568965517241,23.1896551724138,31.7241379310345,41.0344827586207,29.7844827586207,30.948275862069,13.8793103448276,22.0258620689655,13.8793103448276,37.1551724137931,23.5775862068966,15.0431034482759,29.3965517241379,79.8275862068966,64.698275862069,13.8793103448276,80.6034482758621,29.7844827586207,41.4224137931035,67.0258620689655,48.4051724137931,15.0431034482759,13.4913793103448,37.1551724137931,60.4310344827586,24.7413793103448,21.6379310344828,13.8793103448276,29.7844827586207,84.0948275862069,53.0603448275862,14.2672413793103,30.948275862069,41.8103448275862,29.3965517241379,22.0258620689655,15.0431034482759,23.1896551724138,23.1896551724138,21.6379310344828,80.6034482758621,13.8793103448276,16.2068965517241,13.8793103448276,13.8793103448276,24.3534482758621,18.9224137931034,60.8189655172414,67.4137931034483,24.7413793103448,19.3103448275862,14.2672413793103,29.7844827586207,60.8189655172414,22.4137931034483,21.6379310344828,60.4310344827586,22.0258620689655,29.7844827586207,46.0775862068965,86.4224137931034,29.3965517241379,41.0344827586207,83.7068965517242,12.7155172413793,29.3965517241379,50.7327586206897,49.1810344827586,41.8103448275862,42.198275862069,29.7844827586207,20.8620689655172,22.801724137931,20.0862068965517,20.0862068965517,41.8103448275862,17.7586206896552,37.1551724137931,15.4310344827586,46.0775862068965,14.6551724137931,62.3706896551724,15.0431034482759,15.0431034482759,11.551724137931,43.75,14.6551724137931,60.4310344827586,32.1120689655172,18.1465517241379,17.7586206896552,23.1896551724138,14.2672413793103,15.0431034482759,14.6551724137931,14.6551724137931,43.3620689655172,14.6551724137931,18.1465517241379,48.7931034482759,43.75,82.5431034482759,14.2672413793103,41.4224137931035,68.1896551724138,23.5775862068966,18.5344827586207,25.1293103448276,41.4224137931035,37.1551724137931,22.0258620689655,13.1034482758621,60.8189655172414,25.1293103448276,23.1896551724138,29.3965517241379,17.7586206896552,61.2068965517241,41.0344827586207,61.9827586206897,61.2068965517241,40.6465517241379,79.8275862068966,37.9310344827586,22.801724137931,62.3706896551724,61.2068965517241,25.1293103448276,14.2672413793103,22.0258620689655,62.3706896551724,22.0258620689655,14.2672413793103,18.1465517241379,42.9741379310345,18.1465517241379,48.4051724137931,41.8103448275862,68.1896551724138,13.8793103448276,18.1465517241379,13.8793103448276,18.1465517241379,56.1637931034483,22.4137931034483,29.7844827586207,14.2672413793103,37.1551724137931,45.6896551724138,14.2672413793103,63.5344827586207,15.8189655172414,34.051724137931,29.7844827586207,22.4137931034483,89.9137931034483,23.9655172413793,44.9137931034483,22.4137931034483,83.7068965517242,22.801724137931,18.1465517241379,48.7931034482759,53.0603448275862,18.1465517241379,14.2672413793103,14.2672413793103,46.8534482758621,14.2672413793103,37.1551724137931,29.7844827586207,41.0344827586207,31.3362068965517,14.2672413793103,15.4310344827586,30.5603448275862,61.5948275862069,17.3706896551724,29.3965517241379,29.3965517241379,37.1551724137931,84.4827586206897,37.1551724137931,29.3965517241379,21.6379310344828,17.3706896551724,17.7586206896552,60.4310344827586,13.8793103448276,15.0431034482759,14.6551724137931,18.1465517241379,15.8189655172414,46.0775862068965,42.9741379310345,11.1637931034483,48.0172413793103,60.8189655172414,31.3362068965517,80.9913793103448,30.948275862069,30.1724137931035,41.0344827586207,21.6379310344828,37.1551724137931,12.7155172413793,15.0431034482759,82.1551724137931,23.1896551724138,69.3534482758621,27.0689655172414,21.6379310344828,37.9310344827586,42.9741379310345,25.5172413793103,63.9224137931035,41.4224137931035,23.1896551724138,13.8793103448276,14.6551724137931,15.4310344827586,65.0862068965517,30.1724137931035,41.0344827586207,15.4310344827586,20.4741379310345,12.3275862068966,29.3965517241379,25.1293103448276,41.0344827586207,14.2672413793103,55,41.0344827586207,33.6637931034483,68.5775862068965,41.8103448275862,18.9224137931034,60.4310344827586,60.4310344827586,41.8103448275862,63.9224137931035,17.7586206896552,16.2068965517241,41.4224137931035,48.0172413793103,14.6551724137931,60.8189655172414,81.7672413793103,41.8103448275862,49.9568965517241,45.301724137931,17.7586206896552,41.8103448275862,63.9224137931035,16.5948275862069,41.4224137931035,11.9396551724138,23.1896551724138,22.0258620689655,60.8189655172414,99.6120689655172,14.6551724137931,49.1810344827586,24.3534482758621,23.5775862068966,41.0344827586207,30.1724137931035,16.5948275862069,22.0258620689655,42.198275862069,19.3103448275862,47.2413793103448,29.3965517241379,44.5258620689655,37.1551724137931,63.9224137931035,30.1724137931035,60.8189655172414,23.1896551724138,49.5689655172414,14.6551724137931,43.3620689655172,13.8793103448276,14.2672413793103,43.75,41.8103448275862,23.9655172413793,22.4137931034483,48.0172413793103,15.4310344827586,15.4310344827586,17.3706896551724,22.4137931034483,12.3275862068966,30.948275862069,41.4224137931035,37.5431034482759,35.9913793103448,21.6379310344828,17.7586206896552,46.8534482758621,43.75,13.8793103448276,48.7931034482759,15.8189655172414,15.8189655172414,15.0431034482759,18.1465517241379,16.2068965517241,60.4310344827586,22.801724137931,41.0344827586207,63.1465517241379,22.4137931034483,14.2672413793103,53.0603448275862,29.3965517241379,44.9137931034483,17.7586206896552,49.1810344827586,15.0431034482759,13.8793103448276,48.0172413793103,41.4224137931035,23.9655172413793,15.8189655172414,37.5431034482759,41.4224137931035,19.3103448275862,37.9310344827586,33.2758620689655,14.2672413793103,16.5948275862069,29.3965517241379,22.0258620689655,13.8793103448276,16.5948275862069,23.1896551724138,30.1724137931035,16.2068965517241,68.9655172413793,95.3448275862069,41.8103448275862,14.2672413793103,22.4137931034483,22.4137931034483,22.4137931034483,14.2672413793103,26.6810344827586,48.7931034482759,29.3965517241379,48.4051724137931,37.9310344827586,21.6379310344828,29.3965517241379,46.8534482758621,29.3965517241379,44.9137931034483,85.6465517241379,14.6551724137931,14.6551724137931,31.7241379310345,21.6379310344828,13.8793103448276,30.5603448275862,37.5431034482759,23.1896551724138,15.8189655172414,15.0431034482759,30.5603448275862,48.7931034482759,48.7931034482759,60.4310344827586,29.7844827586207,47.2413793103448,48.4051724137931,38.3189655172414,14.2672413793103,17.7586206896552,53.448275862069,22.0258620689655,21.6379310344828,18.5344827586207,30.948275862069,18.1465517241379,22.0258620689655,14.2672413793103,23.9655172413793,29.7844827586207,29.3965517241379,15.4310344827586,12.7155172413793,52.2844827586207,29.3965517241379,46.0775862068965,14.2672413793103,41.8103448275862,33.2758620689655,39.4827586206897,18.1465517241379,18.1465517241379,15.0431034482759,12.3275862068966,33.6637931034483,25.9051724137931,23.5775862068966,80.2155172413793,13.8793103448276,32.5,13.8793103448276,22.4137931034483,13.8793103448276,14.2672413793103,25.1293103448276,29.7844827586207,15.0431034482759,41.8103448275862,37.1551724137931,11.1637931034483,15.0431034482759,29.3965517241379,51.8965517241379,64.3103448275862,31.3362068965517,41.0344827586207,29.3965517241379,13.8793103448276,13.8793103448276,13.8793103448276,29.3965517241379,22.4137931034483,29.3965517241379,29.3965517241379,37.1551724137931,18.1465517241379,45.301724137931,22.4137931034483,33.2758620689655,17.3706896551724,34.4396551724138,24.7413793103448,29.3965517241379,22.0258620689655,13.8793103448276,18.9224137931034,15.4310344827586,11.551724137931,21.6379310344828,41.0344827586207,24.7413793103448,22.801724137931,95.7327586206897,96.1206896551724,37.1551724137931,22.4137931034483,17.7586206896552,42.198275862069,48.7931034482759,30.1724137931035,16.9827586206897,61.2068965517241,29.3965517241379,15.0431034482759,37.1551724137931,34.051724137931,29.7844827586207,41.4224137931035,41.0344827586207,49.1810344827586,15.8189655172414,87.9741379310345,23.1896551724138,46.4655172413793,14.2672413793103,41.0344827586207,18.5344827586207,30.1724137931035,18.1465517241379,42.9741379310345,41.0344827586207,29.3965517241379,37.1551724137931,15.4310344827586,29.3965517241379,44.5258620689655,80.2155172413793,29.3965517241379,41.4224137931035,16.5948275862069,49.5689655172414,34.8275862068966,22.801724137931,30.1724137931035,56.1637931034483,41.0344827586207,14.2672413793103,15.0431034482759,21.6379310344828,15.8189655172414,41.8103448275862,80.9913793103448,45.6896551724138,21.6379310344828,22.801724137931,22.0258620689655,15.0431034482759,23.1896551724138,29.3965517241379,60.8189655172414,12.3275862068966,42.5862068965517,14.2672413793103,22.801724137931,43.75,13.8793103448276,46.8534482758621,14.2672413793103,14.2672413793103,51.1206896551724,60.8189655172414,18.5344827586207,32.1120689655172,29.7844827586207,14.6551724137931,44.5258620689655,22.0258620689655,51.8965517241379,30.1724137931035,32.1120689655172,16.2068965517241,37.1551724137931,61.2068965517241,55.3879310344828,49.1810344827586,29.3965517241379,15.8189655172414,15.0431034482759,16.9827586206897,32.5,23.5775862068966,16.2068965517241,18.1465517241379,29.7844827586207,24.3534482758621,29.0086206896552,14.2672413793103,51.5086206896552,41.4224137931035,80.2155172413793,60.8189655172414,16.5948275862069,29.3965517241379,80.6034482758621,16.2068965517241,15.0431034482759,15.8189655172414,22.801724137931,14.6551724137931,60.4310344827586,29.3965517241379,59.2672413793103,16.5948275862069,73.2327586206897,30.1724137931035,50.3448275862069,21.6379310344828,60.4310344827586,18.5344827586207,18.5344827586207,37.1551724137931,23.5775862068966,100,22.4137931034483,16.2068965517241,13.8793103448276,14.2672413793103,30.1724137931035,16.2068965517241,13.8793103448276,43.3620689655172,30.1724137931035,13.4913793103448,13.8793103448276,22.4137931034483,50.3448275862069,10,10,13.8793103448276,49.1810344827586,34.4396551724138,18.9224137931034,13.8793103448276,41.0344827586207,21.6379310344828,61.2068965517241,31.3362068965517,22.801724137931,30.1724137931035,14.2672413793103,22.0258620689655,37.1551724137931,13.8793103448276,22.4137931034483,29.7844827586207,37.5431034482759,65.4741379310345,30.1724137931035,63.9224137931035,60.4310344827586,13.8793103448276,42.5862068965517,14.2672413793103,51.1206896551724,15.4310344827586,12.7155172413793,12.7155172413793,61.5948275862069,31.7241379310345,13.8793103448276,37.5431034482759,18.9224137931034,14.2672413793103,46.0775862068965,22.4137931034483,22.0258620689655]},"error_y":{"width":[]},"error_x":{"width":[]},"xaxis":"x","yaxis":"y","frame":null},{"x":[0.2,2.52],"y":[367,18656],"type":"scatter","mode":"markers","opacity":0,"hoverinfo":"none","showlegend":false,"marker":{"colorbar":{"title":"carat","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"cmin":0.2,"cmax":2.52,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"color":[0.2,2.52],"line":{"color":"rgba(255,127,14,1)"}},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+</div>
+
+<script>
+
+$(document).ready(function () {
+
+  // add bootstrap table styles to pandoc tables
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+
+  // initialize mathjax
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+  document.getElementsByTagName("head")[0].appendChild(script);
+
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+  FlexDashboard.init({
+    theme: "cosmo",
+    fillPage: true,
+    orientation: "columns",
+    storyboard: false,
+    defaultFigWidth: 576,
+    defaultFigHeight: 460,
+    defaultFigWidthMobile: 360,
+    defaultFigHeightMobile: 460,
+    resize_reload: true
+  });
+});
+</script>
+
+</body>
+</html>
